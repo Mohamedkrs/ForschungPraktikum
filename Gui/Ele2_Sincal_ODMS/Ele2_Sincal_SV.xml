@@ -1,0 +1,405 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:profile="http://www.entsoe.eu/2012/profile1_v16#" xmlns:sin="http://www.simtec.cc/cim/sincal-cim-rdf-syntax#" xmlns:cim="http://iec.ch/TC57/2013/CIM-schema-cim16#" xmlns:entsoe="http://entsoe.eu/CIM/SchemaExtension/3/1#" xmlns:entsoe2="http://entsoe.eu/CIM/SchemaExtension/3/2#" xmlns:md="http://iec.ch/TC57/61970-552/ModelDescription/1#">
+  <md:FullModel rdf:about="urn:uuid:3ec99ad7-5770-11ec-8aad-00155d9cdc0b">
+    <md:Model.created>2021-12-07T15:13:35Z</md:Model.created>
+    <md:Model.scenarioTime>2021-12-07T15:13:35Z</md:Model.scenarioTime>
+    <md:Model.version>1</md:Model.version>
+    <md:Model.description />
+    <md:Model.profile>http://entsoe.eu/CIM/StateVariables/4/1</md:Model.profile>
+  </md:FullModel>
+  <cim:SvPowerFlow rdf:ID="_049BDD2C18FF4ADEAA36A3E0FD6638D7">
+    <cim:SvPowerFlow.Terminal rdf:resource="#_05E6F640FF014444A1D854D7375D4C8D" />
+    <cim:SvPowerFlow.p>1.275</cim:SvPowerFlow.p>
+    <cim:SvPowerFlow.q>0.790174031</cim:SvPowerFlow.q>
+  </cim:SvPowerFlow>
+  <cim:SvPowerFlow rdf:ID="_1AEE2AE5C57141AE90E8728D209353EF">
+    <cim:SvPowerFlow.Terminal rdf:resource="#_8AD91660F9964A92AD4EA7560B8B1A8E" />
+    <cim:SvPowerFlow.p>0.06375</cim:SvPowerFlow.p>
+    <cim:SvPowerFlow.q>0.039508702</cim:SvPowerFlow.q>
+  </cim:SvPowerFlow>
+  <cim:SvPowerFlow rdf:ID="_22D4551C13E940C8BD4873F3FE9FE929">
+    <cim:SvPowerFlow.Terminal rdf:resource="#_73BD7097C37C44FE9BD4227E2A2365DB" />
+    <cim:SvPowerFlow.p>0.0918</cim:SvPowerFlow.p>
+    <cim:SvPowerFlow.q>0.05689253</cim:SvPowerFlow.q>
+  </cim:SvPowerFlow>
+  <cim:SvPowerFlow rdf:ID="_345233ECE5694811A9523AA39240034A">
+    <cim:SvPowerFlow.Terminal rdf:resource="#_8AAC818A0B37437783FA6DF730AEADD3" />
+    <cim:SvPowerFlow.p>0.275</cim:SvPowerFlow.p>
+    <cim:SvPowerFlow.q>0</cim:SvPowerFlow.q>
+  </cim:SvPowerFlow>
+  <cim:SvPowerFlow rdf:ID="_37B1B1E4E22843A6B8C66A2DFE6A78C0">
+    <cim:SvPowerFlow.Terminal rdf:resource="#_CA9FA7F1918D4374BE4CE4627088D35A" />
+    <cim:SvPowerFlow.p>1.275</cim:SvPowerFlow.p>
+    <cim:SvPowerFlow.q>0.790174031</cim:SvPowerFlow.q>
+  </cim:SvPowerFlow>
+  <cim:SvPowerFlow rdf:ID="_3FD43FC914C74E069EA325A93CEDF16D">
+    <cim:SvPowerFlow.Terminal rdf:resource="#_EFEE85AC9DD54C5BA6AADB0D3FBD06E7" />
+    <cim:SvPowerFlow.p>0</cim:SvPowerFlow.p>
+    <cim:SvPowerFlow.q>0</cim:SvPowerFlow.q>
+  </cim:SvPowerFlow>
+  <cim:SvPowerFlow rdf:ID="_462654C64F5146E99B646433F64218E6">
+    <cim:SvPowerFlow.Terminal rdf:resource="#_757EE458A84A4A5AB6D087B3573878A3" />
+    <cim:SvPowerFlow.p>0</cim:SvPowerFlow.p>
+    <cim:SvPowerFlow.q>0</cim:SvPowerFlow.q>
+  </cim:SvPowerFlow>
+  <cim:SvPowerFlow rdf:ID="_61686D2F81194F88B4B72BF47C2ADACD">
+    <cim:SvPowerFlow.Terminal rdf:resource="#_DF069861679A459284973925F59F1835" />
+    <cim:SvPowerFlow.p>0</cim:SvPowerFlow.p>
+    <cim:SvPowerFlow.q>0</cim:SvPowerFlow.q>
+  </cim:SvPowerFlow>
+  <cim:SvPowerFlow rdf:ID="_64828AD2FB2E41CFAD9CA20DC014F723">
+    <cim:SvPowerFlow.Terminal rdf:resource="#_72B04D737D954517BE79268593EE97C1" />
+    <cim:SvPowerFlow.p>0</cim:SvPowerFlow.p>
+    <cim:SvPowerFlow.q>0</cim:SvPowerFlow.q>
+  </cim:SvPowerFlow>
+  <cim:SvPowerFlow rdf:ID="_65DB333CD8FD452CBFC0501A00853093">
+    <cim:SvPowerFlow.Terminal rdf:resource="#_C3C19789F8C14AB3A9319599AEFA3072" />
+    <cim:SvPowerFlow.p>0.06375</cim:SvPowerFlow.p>
+    <cim:SvPowerFlow.q>0.039508702</cim:SvPowerFlow.q>
+  </cim:SvPowerFlow>
+  <cim:SvPowerFlow rdf:ID="_79714CB0CB604142AC623D498A0CE5CB">
+    <cim:SvPowerFlow.Terminal rdf:resource="#_30E185A7C9FA43D88F35D346733DE35D" />
+    <cim:SvPowerFlow.p>0</cim:SvPowerFlow.p>
+    <cim:SvPowerFlow.q>-0.634954996</cim:SvPowerFlow.q>
+  </cim:SvPowerFlow>
+  <cim:SvPowerFlow rdf:ID="_7A931910D8794273B4644C1D9679DC3F">
+    <cim:SvPowerFlow.Terminal rdf:resource="#_E7328328996840AAB5E35646E84BE145" />
+    <cim:SvPowerFlow.p>0</cim:SvPowerFlow.p>
+    <cim:SvPowerFlow.q>0</cim:SvPowerFlow.q>
+  </cim:SvPowerFlow>
+  <cim:SvPowerFlow rdf:ID="_8625863F665247F9AE049DD8B09B9A53">
+    <cim:SvPowerFlow.Terminal rdf:resource="#_116190AD6EDD45049E3F2F7E730A4A2D" />
+    <cim:SvPowerFlow.p>0</cim:SvPowerFlow.p>
+    <cim:SvPowerFlow.q>0</cim:SvPowerFlow.q>
+  </cim:SvPowerFlow>
+  <cim:SvPowerFlow rdf:ID="_87C1B1F7256C467DB9F1337EDC2D7C29">
+    <cim:SvPowerFlow.Terminal rdf:resource="#_2CF84BC1CE164EFA8F5E1CBED23489D5" />
+    <cim:SvPowerFlow.p>0</cim:SvPowerFlow.p>
+    <cim:SvPowerFlow.q>0</cim:SvPowerFlow.q>
+  </cim:SvPowerFlow>
+  <cim:SvPowerFlow rdf:ID="_8A14C800BE004E46A8F04288806504A5">
+    <cim:SvPowerFlow.Terminal rdf:resource="#_5D37145AE377490E8951F031758429FE" />
+    <cim:SvPowerFlow.p>0</cim:SvPowerFlow.p>
+    <cim:SvPowerFlow.q>-1.904864987</cim:SvPowerFlow.q>
+  </cim:SvPowerFlow>
+  <cim:SvPowerFlow rdf:ID="_902F451EBB4B4F19A039837494411D0F">
+    <cim:SvPowerFlow.Terminal rdf:resource="#_2E4B854914934429AAFB88E5C546A03B" />
+    <cim:SvPowerFlow.p>0.0918</cim:SvPowerFlow.p>
+    <cim:SvPowerFlow.q>0.05689253</cim:SvPowerFlow.q>
+  </cim:SvPowerFlow>
+  <cim:SvPowerFlow rdf:ID="_990348B3EF5E40409827F7B5250A9A94">
+    <cim:SvPowerFlow.Terminal rdf:resource="#_4CA2E2683CA7409A8F6075F2D6CEF703" />
+    <cim:SvPowerFlow.p>0</cim:SvPowerFlow.p>
+    <cim:SvPowerFlow.q>0</cim:SvPowerFlow.q>
+  </cim:SvPowerFlow>
+  <cim:SvPowerFlow rdf:ID="_AF1536C98AC04243B97D794F0AF4F7FA">
+    <cim:SvPowerFlow.Terminal rdf:resource="#_95E075E3D4464277BE92F6F960026576" />
+    <cim:SvPowerFlow.p>0</cim:SvPowerFlow.p>
+    <cim:SvPowerFlow.q>0</cim:SvPowerFlow.q>
+  </cim:SvPowerFlow>
+  <cim:SvPowerFlow rdf:ID="_B1B3BBAA42DE4DE5A9ADC8011A23D12F">
+    <cim:SvPowerFlow.Terminal rdf:resource="#_F1E5699E55914F3DA4CBCFE47CAAD2B9" />
+    <cim:SvPowerFlow.p>0.02805</cim:SvPowerFlow.p>
+    <cim:SvPowerFlow.q>0.017383829</cim:SvPowerFlow.q>
+  </cim:SvPowerFlow>
+  <cim:SvPowerFlow rdf:ID="_BA4E1203AC9F4ADF8758529F720EF08C">
+    <cim:SvPowerFlow.Terminal rdf:resource="#_52A88DFA9EF0408092DE189F94AB1663" />
+    <cim:SvPowerFlow.p>0.02805</cim:SvPowerFlow.p>
+    <cim:SvPowerFlow.q>0.017383829</cim:SvPowerFlow.q>
+  </cim:SvPowerFlow>
+  <cim:SvPowerFlow rdf:ID="_C2FBBCA2B6424C5BB0A31F758EEAF543">
+    <cim:SvPowerFlow.Terminal rdf:resource="#_3EE4F44DB9434429979D24017B47329E" />
+    <cim:SvPowerFlow.p>0</cim:SvPowerFlow.p>
+    <cim:SvPowerFlow.q>0</cim:SvPowerFlow.q>
+  </cim:SvPowerFlow>
+  <cim:SvPowerFlow rdf:ID="_CDB6DA9D17594F619C02D49C1F95D3F1">
+    <cim:SvPowerFlow.Terminal rdf:resource="#_D8DDFFB4E4424335923378907A66019B" />
+    <cim:SvPowerFlow.p>0.275</cim:SvPowerFlow.p>
+    <cim:SvPowerFlow.q>0</cim:SvPowerFlow.q>
+  </cim:SvPowerFlow>
+  <cim:SvPowerFlow rdf:ID="_DF517B234E074536BF4FA724D03181DC">
+    <cim:SvPowerFlow.Terminal rdf:resource="#_3B4536B97F304177B35A91E85DD36455" />
+    <cim:SvPowerFlow.p>0</cim:SvPowerFlow.p>
+    <cim:SvPowerFlow.q>0</cim:SvPowerFlow.q>
+  </cim:SvPowerFlow>
+  <cim:SvPowerFlow rdf:ID="_EAB21A345B0748C09131FF9056F3FE2C">
+    <cim:SvPowerFlow.Terminal rdf:resource="#_0354E019E1ED4B4F87DF157DD46DE280" />
+    <cim:SvPowerFlow.p>0</cim:SvPowerFlow.p>
+    <cim:SvPowerFlow.q>0</cim:SvPowerFlow.q>
+  </cim:SvPowerFlow>
+  <cim:SvPowerFlow rdf:ID="_F097A06784E7470EB018DA35C2292785">
+    <cim:SvPowerFlow.Terminal rdf:resource="#_895C850CB6D74AD09412946D7CE04ED1" />
+    <cim:SvPowerFlow.p>-3.53625068</cim:SvPowerFlow.p>
+    <cim:SvPowerFlow.q>0.63044482</cim:SvPowerFlow.q>
+  </cim:SvPowerFlow>
+  <cim:SvShuntCompensatorSections rdf:ID="_051648EBD5ED4D4081F66143E9FDD681">
+    <cim:SvShuntCompensatorSections.ShuntCompensator rdf:resource="#_915BCFD45128457EA3582E2144AB4E08" />
+    <cim:SvShuntCompensatorSections.sections>1</cim:SvShuntCompensatorSections.sections>
+  </cim:SvShuntCompensatorSections>
+  <cim:SvShuntCompensatorSections rdf:ID="_13079C6AC525447484B7FB8475856309">
+    <cim:SvShuntCompensatorSections.ShuntCompensator rdf:resource="#_4A8F400B5CC2424E964669F18DB31EBB" />
+    <cim:SvShuntCompensatorSections.sections>1</cim:SvShuntCompensatorSections.sections>
+  </cim:SvShuntCompensatorSections>
+  <cim:SvShuntCompensatorSections rdf:ID="_3CC32084FBD8472A9972836E45019975">
+    <cim:SvShuntCompensatorSections.ShuntCompensator rdf:resource="#_3853711AE8074FE29ED20A2060DA7216" />
+    <cim:SvShuntCompensatorSections.sections>1</cim:SvShuntCompensatorSections.sections>
+  </cim:SvShuntCompensatorSections>
+  <cim:SvShuntCompensatorSections rdf:ID="_93AD77B46B834BE3875AD9CEF4E51FEF">
+    <cim:SvShuntCompensatorSections.ShuntCompensator rdf:resource="#_28C2AD3D2D114E6E86FEFCB064C7DDC4" />
+    <cim:SvShuntCompensatorSections.sections>1</cim:SvShuntCompensatorSections.sections>
+  </cim:SvShuntCompensatorSections>
+  <cim:SvStatus rdf:ID="_030B52B69B1041E6831DAE16709026A1">
+    <cim:SvStatus.ConductingEquipment rdf:resource="#_4F53FDBDAA594BA8819A849573EE80CC" />
+    <cim:SvStatus.inService>true</cim:SvStatus.inService>
+  </cim:SvStatus>
+  <cim:SvStatus rdf:ID="_04A326C366C04EAC94F4121EDBD2AD51">
+    <cim:SvStatus.ConductingEquipment rdf:resource="#_3A5BBD871DD647889CDD8A83C4106B10" />
+    <cim:SvStatus.inService>true</cim:SvStatus.inService>
+  </cim:SvStatus>
+  <cim:SvStatus rdf:ID="_0813E816BAC34AD3A9503BC3AFF888F4">
+    <cim:SvStatus.ConductingEquipment rdf:resource="#_D1DDAEE59CF244429073F5DF5DFD4AD7" />
+    <cim:SvStatus.inService>true</cim:SvStatus.inService>
+  </cim:SvStatus>
+  <cim:SvStatus rdf:ID="_0CDE16C8FFE4482EAFA07CC09A7D5D2F">
+    <cim:SvStatus.ConductingEquipment rdf:resource="#_0637B87DDFB74CD2A7F0A90AF34D9F2C" />
+    <cim:SvStatus.inService>true</cim:SvStatus.inService>
+  </cim:SvStatus>
+  <cim:SvStatus rdf:ID="_1C37798377F3481E914894F7DA6E03A3">
+    <cim:SvStatus.ConductingEquipment rdf:resource="#_5232798E871048069A6517CA0A535B17" />
+    <cim:SvStatus.inService>true</cim:SvStatus.inService>
+  </cim:SvStatus>
+  <cim:SvStatus rdf:ID="_2178F537126E4D979E43D9FC991CF9AF">
+    <cim:SvStatus.ConductingEquipment rdf:resource="#_C45ABAD0CE934DA5B839E0F388BF9B15" />
+    <cim:SvStatus.inService>true</cim:SvStatus.inService>
+  </cim:SvStatus>
+  <cim:SvStatus rdf:ID="_258B30BDFFB24B7F8FBFD7A3869DDBFF">
+    <cim:SvStatus.ConductingEquipment rdf:resource="#_3853711AE8074FE29ED20A2060DA7216" />
+    <cim:SvStatus.inService>true</cim:SvStatus.inService>
+  </cim:SvStatus>
+  <cim:SvStatus rdf:ID="_278DD24DDE0D4456BE26AC4E66269DF6">
+    <cim:SvStatus.ConductingEquipment rdf:resource="#_3ABACAB3B26C4978A2B4C84DD31EA994" />
+    <cim:SvStatus.inService>true</cim:SvStatus.inService>
+  </cim:SvStatus>
+  <cim:SvStatus rdf:ID="_29F5B9129E79442AAFCA49089CDC6560">
+    <cim:SvStatus.ConductingEquipment rdf:resource="#_63DD194D43334437A619500EC736D3FE" />
+    <cim:SvStatus.inService>true</cim:SvStatus.inService>
+  </cim:SvStatus>
+  <cim:SvStatus rdf:ID="_2A56904349BD429E869A47E3537100C5">
+    <cim:SvStatus.ConductingEquipment rdf:resource="#_20357C6D343F452CA14C6A0BBD147297" />
+    <cim:SvStatus.inService>true</cim:SvStatus.inService>
+  </cim:SvStatus>
+  <cim:SvStatus rdf:ID="_3624DB793D3B460AA887808F027A3549">
+    <cim:SvStatus.ConductingEquipment rdf:resource="#_8100171A83884EEDB096CA7E2DFD82CF" />
+    <cim:SvStatus.inService>true</cim:SvStatus.inService>
+  </cim:SvStatus>
+  <cim:SvStatus rdf:ID="_3ABAE8C30E7E4BE69BA9D43C4C1195FF">
+    <cim:SvStatus.ConductingEquipment rdf:resource="#_28C2AD3D2D114E6E86FEFCB064C7DDC4" />
+    <cim:SvStatus.inService>true</cim:SvStatus.inService>
+  </cim:SvStatus>
+  <cim:SvStatus rdf:ID="_3B826D16E2F3412F9D66BBE8BD0AD7B9">
+    <cim:SvStatus.ConductingEquipment rdf:resource="#_A75ACB7427424DA9A14E8A93C5447A26" />
+    <cim:SvStatus.inService>true</cim:SvStatus.inService>
+  </cim:SvStatus>
+  <cim:SvStatus rdf:ID="_3D82D5DF213646A0BA7DE854E8C4F36E">
+    <cim:SvStatus.ConductingEquipment rdf:resource="#_DCFFD6E4E5EE46D69A34A97BA2216025" />
+    <cim:SvStatus.inService>true</cim:SvStatus.inService>
+  </cim:SvStatus>
+  <cim:SvStatus rdf:ID="_4BEDCDF37728430DB3760C80C96E6B15">
+    <cim:SvStatus.ConductingEquipment rdf:resource="#_9AE1CAFDDF1D4DF08AB89BF1BE90070D" />
+    <cim:SvStatus.inService>true</cim:SvStatus.inService>
+  </cim:SvStatus>
+  <cim:SvStatus rdf:ID="_4EEA01F91C12445C8652C3CC90C7FE4B">
+    <cim:SvStatus.ConductingEquipment rdf:resource="#_220761E8E1D4423DBE247581FE34A751" />
+    <cim:SvStatus.inService>true</cim:SvStatus.inService>
+  </cim:SvStatus>
+  <cim:SvStatus rdf:ID="_5065996C30A646A1AE2BA9CF8F486726">
+    <cim:SvStatus.ConductingEquipment rdf:resource="#_915BCFD45128457EA3582E2144AB4E08" />
+    <cim:SvStatus.inService>true</cim:SvStatus.inService>
+  </cim:SvStatus>
+  <cim:SvStatus rdf:ID="_51A1630D5B8D4593A4358B9C61883992">
+    <cim:SvStatus.ConductingEquipment rdf:resource="#_789B8B75294C4A2EA267EC70D2EAA47A" />
+    <cim:SvStatus.inService>true</cim:SvStatus.inService>
+  </cim:SvStatus>
+  <cim:SvStatus rdf:ID="_56B32384E972461992F6D3B52BEC30EE">
+    <cim:SvStatus.ConductingEquipment rdf:resource="#_5F985DE1A10A42BCA85E8C7A9F89B485" />
+    <cim:SvStatus.inService>true</cim:SvStatus.inService>
+  </cim:SvStatus>
+  <cim:SvStatus rdf:ID="_56CA86E6F9DD4669AC066F45D8ADAB20">
+    <cim:SvStatus.ConductingEquipment rdf:resource="#_5323B168EFEC4FA5A8A933C13618B36A" />
+    <cim:SvStatus.inService>true</cim:SvStatus.inService>
+  </cim:SvStatus>
+  <cim:SvStatus rdf:ID="_5D6A29E510754FE5B9BFA300A7A8AFCF">
+    <cim:SvStatus.ConductingEquipment rdf:resource="#_2ECCD73DEF264F9695FF3FB79E095B25" />
+    <cim:SvStatus.inService>true</cim:SvStatus.inService>
+  </cim:SvStatus>
+  <cim:SvStatus rdf:ID="_6724127FEF734CE5879BC5730A595D47">
+    <cim:SvStatus.ConductingEquipment rdf:resource="#_AE053CEED1314C4BABB2B3E20AC8FBED" />
+    <cim:SvStatus.inService>true</cim:SvStatus.inService>
+  </cim:SvStatus>
+  <cim:SvStatus rdf:ID="_736730FE6F7247AEB8B0EEA19DDC76DB">
+    <cim:SvStatus.ConductingEquipment rdf:resource="#_8B46FA6FBFB140C9BB12B27D969C9812" />
+    <cim:SvStatus.inService>true</cim:SvStatus.inService>
+  </cim:SvStatus>
+  <cim:SvStatus rdf:ID="_8765CD655CCC498FA4677E590F8B4039">
+    <cim:SvStatus.ConductingEquipment rdf:resource="#_4A8F400B5CC2424E964669F18DB31EBB" />
+    <cim:SvStatus.inService>true</cim:SvStatus.inService>
+  </cim:SvStatus>
+  <cim:SvStatus rdf:ID="_959AB519AAE24725A97C2762CB344A1F">
+    <cim:SvStatus.ConductingEquipment rdf:resource="#_37F730D08DEF42A79A58ACBE3F36473E" />
+    <cim:SvStatus.inService>true</cim:SvStatus.inService>
+  </cim:SvStatus>
+  <cim:SvStatus rdf:ID="_A4B7187AAE9F4B1AA5E80378FB0280E1">
+    <cim:SvStatus.ConductingEquipment rdf:resource="#_AAC996B5B7F644D7BB75F335A27E1EC9" />
+    <cim:SvStatus.inService>true</cim:SvStatus.inService>
+  </cim:SvStatus>
+  <cim:SvStatus rdf:ID="_A6F78F071BBC4650B96DA1FA6DE6F15C">
+    <cim:SvStatus.ConductingEquipment rdf:resource="#_8D209594698742289AB909210C10249D" />
+    <cim:SvStatus.inService>true</cim:SvStatus.inService>
+  </cim:SvStatus>
+  <cim:SvStatus rdf:ID="_A82B6375A10D4058A471884E78562919">
+    <cim:SvStatus.ConductingEquipment rdf:resource="#_28838261CB7C48DFBFA40C10E23C7F82" />
+    <cim:SvStatus.inService>true</cim:SvStatus.inService>
+  </cim:SvStatus>
+  <cim:SvStatus rdf:ID="_AC09EBCC07B24B5D9CFF6B37B14F9AED">
+    <cim:SvStatus.ConductingEquipment rdf:resource="#_23609BE461024EB89759FEAD001B3435" />
+    <cim:SvStatus.inService>true</cim:SvStatus.inService>
+  </cim:SvStatus>
+  <cim:SvStatus rdf:ID="_B81F21DE617A404B9197A9FAAAE4711F">
+    <cim:SvStatus.ConductingEquipment rdf:resource="#_D20C23803EC44517ADAC106A7ACFA88D" />
+    <cim:SvStatus.inService>true</cim:SvStatus.inService>
+  </cim:SvStatus>
+  <cim:SvStatus rdf:ID="_B83995DF2AE243E5B56E69B23AD6A85B">
+    <cim:SvStatus.ConductingEquipment rdf:resource="#_1BB2F4211A9747409599D4EA28F03A85" />
+    <cim:SvStatus.inService>true</cim:SvStatus.inService>
+  </cim:SvStatus>
+  <cim:SvStatus rdf:ID="_BF62B73693FC46B1854CDB7588868598">
+    <cim:SvStatus.ConductingEquipment rdf:resource="#_FDFE6D4080F8454B852979FB7ED0B072" />
+    <cim:SvStatus.inService>true</cim:SvStatus.inService>
+  </cim:SvStatus>
+  <cim:SvStatus rdf:ID="_C6F62993F25A4521BBE59344DC6A8F44">
+    <cim:SvStatus.ConductingEquipment rdf:resource="#_EDC1915BDDEC4DBC87716E071BCAEB5A" />
+    <cim:SvStatus.inService>true</cim:SvStatus.inService>
+  </cim:SvStatus>
+  <cim:SvStatus rdf:ID="_CD1E19441C114C18915C97CB87E55C04">
+    <cim:SvStatus.ConductingEquipment rdf:resource="#_C4282B09164E4B56BC7F2FAF9303830A" />
+    <cim:SvStatus.inService>true</cim:SvStatus.inService>
+  </cim:SvStatus>
+  <cim:SvStatus rdf:ID="_D36D50AFD44748EC8CE64AA08D0F521B">
+    <cim:SvStatus.ConductingEquipment rdf:resource="#_C850052633B342EE9F7B07C8EB527CF2" />
+    <cim:SvStatus.inService>true</cim:SvStatus.inService>
+  </cim:SvStatus>
+  <cim:SvStatus rdf:ID="_DAECDC6E975B43C387800FA0BB5C04FC">
+    <cim:SvStatus.ConductingEquipment rdf:resource="#_40A3D264542D4E828DC3E7D53A9D4158" />
+    <cim:SvStatus.inService>true</cim:SvStatus.inService>
+  </cim:SvStatus>
+  <cim:SvStatus rdf:ID="_DB02031327EA42B4A612B54943DE667C">
+    <cim:SvStatus.ConductingEquipment rdf:resource="#_5595A1112B9246968C8D4D22DC1AC08C" />
+    <cim:SvStatus.inService>true</cim:SvStatus.inService>
+  </cim:SvStatus>
+  <cim:SvStatus rdf:ID="_E2227F7FA99740CFBC444D900610CE46">
+    <cim:SvStatus.ConductingEquipment rdf:resource="#_0296C1D3F1984073B5FF734563E09408" />
+    <cim:SvStatus.inService>true</cim:SvStatus.inService>
+  </cim:SvStatus>
+  <cim:SvStatus rdf:ID="_E87CB36D9F8B49E6B866675BE60BBCD6">
+    <cim:SvStatus.ConductingEquipment rdf:resource="#_3294B6B2A0624D089D0F3A36775491D7" />
+    <cim:SvStatus.inService>true</cim:SvStatus.inService>
+  </cim:SvStatus>
+  <cim:SvStatus rdf:ID="_EE2D2D0E8D37460CB55B6F12E9620B64">
+    <cim:SvStatus.ConductingEquipment rdf:resource="#_D6E739CA2E8C44F78773DA0690C10F9F" />
+    <cim:SvStatus.inService>true</cim:SvStatus.inService>
+  </cim:SvStatus>
+  <cim:SvStatus rdf:ID="_F12F90935B834C08B104CDC1EBD6ACDC">
+    <cim:SvStatus.ConductingEquipment rdf:resource="#_0D8A791E57D0479DBCD0A7B3E47A56E3" />
+    <cim:SvStatus.inService>true</cim:SvStatus.inService>
+  </cim:SvStatus>
+  <cim:SvStatus rdf:ID="_F55B559453AD4D92B611FFAE0F89E968">
+    <cim:SvStatus.ConductingEquipment rdf:resource="#_018CAD8C7A0842CE90B9442BC465DE62" />
+    <cim:SvStatus.inService>true</cim:SvStatus.inService>
+  </cim:SvStatus>
+  <cim:SvStatus rdf:ID="_FC436E7F31A944118102ECFF310BEF55">
+    <cim:SvStatus.ConductingEquipment rdf:resource="#_A23E7AE1F5334805BF1497ADA3C0D061" />
+    <cim:SvStatus.inService>true</cim:SvStatus.inService>
+  </cim:SvStatus>
+  <cim:SvStatus rdf:ID="_FFB960FB05644C5BB6C0B79A138FC099">
+    <cim:SvStatus.ConductingEquipment rdf:resource="#_7436C24499744D0EAF3FD62D81D9BE7E" />
+    <cim:SvStatus.inService>true</cim:SvStatus.inService>
+  </cim:SvStatus>
+  <cim:SvTapStep rdf:ID="_02C6CE5962AD43E4AB8D8CD15B12E9A0">
+    <cim:SvTapStep.TapChanger rdf:resource="#_5F216A89469945D680B8390F8954E989" />
+    <cim:SvTapStep.position>0</cim:SvTapStep.position>
+  </cim:SvTapStep>
+  <cim:SvTapStep rdf:ID="_0417E084DE7B44D3A83740DF08C0EE94">
+    <cim:SvTapStep.TapChanger rdf:resource="#_511F120B3727403195822C9E22587E7C" />
+    <cim:SvTapStep.position>0</cim:SvTapStep.position>
+  </cim:SvTapStep>
+  <cim:SvTapStep rdf:ID="_29E6842A2A50485081474D7855AFA400">
+    <cim:SvTapStep.TapChanger rdf:resource="#_F615EC1A99964A59A58890BFF40DAE45" />
+    <cim:SvTapStep.position>0</cim:SvTapStep.position>
+  </cim:SvTapStep>
+  <cim:SvTapStep rdf:ID="_5A7C93B74DEF4FCAB4A10EAB39821914">
+    <cim:SvTapStep.TapChanger rdf:resource="#_1D07F4DB0B5946EBB1ACC8C635F23F07" />
+    <cim:SvTapStep.position>0</cim:SvTapStep.position>
+  </cim:SvTapStep>
+  <cim:SvTapStep rdf:ID="_865837F581B44891A08E432AEAB3FE25">
+    <cim:SvTapStep.TapChanger rdf:resource="#_AF2513BE31E34A499C665DADA691B6BD" />
+    <cim:SvTapStep.position>0</cim:SvTapStep.position>
+  </cim:SvTapStep>
+  <cim:SvTapStep rdf:ID="_8858CE2633C94A588E2E3DBB233F70EA">
+    <cim:SvTapStep.TapChanger rdf:resource="#_2D0226B6BCFF40A9B4D30E1460593BFA" />
+    <cim:SvTapStep.position>0</cim:SvTapStep.position>
+  </cim:SvTapStep>
+  <cim:SvTapStep rdf:ID="_A6172A87E7CF4641AF96EA66ED64DDF6">
+    <cim:SvTapStep.TapChanger rdf:resource="#_084D54D1DF794B7CB6A7D7AAFEB5A5E3" />
+    <cim:SvTapStep.position>0</cim:SvTapStep.position>
+  </cim:SvTapStep>
+  <cim:SvVoltage rdf:ID="_0E516686356F4364AF9480F66563A01B">
+    <cim:SvVoltage.TopologicalNode rdf:resource="#_0422BBA796A44BA9B9157893AA06165D" />
+    <cim:SvVoltage.angle>-0.039898558</cim:SvVoltage.angle>
+    <cim:SvVoltage.v>89.11309754</cim:SvVoltage.v>
+  </cim:SvVoltage>
+  <cim:SvVoltage rdf:ID="_283E784970D240AEB2ECC3D29385D27D">
+    <cim:SvVoltage.TopologicalNode rdf:resource="#_919FD9081AB74AAD80937F0C0008428D" />
+    <cim:SvVoltage.angle>0</cim:SvVoltage.angle>
+    <cim:SvVoltage.v>0</cim:SvVoltage.v>
+  </cim:SvVoltage>
+  <cim:SvVoltage rdf:ID="_46ADEC4A80CC47ADAFA6197F9EE3DA2E">
+    <cim:SvVoltage.TopologicalNode rdf:resource="#_24F56BB0DE7F4E0880B76FEF90EA0E4D" />
+    <cim:SvVoltage.angle>0</cim:SvVoltage.angle>
+    <cim:SvVoltage.v>0</cim:SvVoltage.v>
+  </cim:SvVoltage>
+  <cim:SvVoltage rdf:ID="_69D5870225104873B4422252AEDFDEC9">
+    <cim:SvVoltage.TopologicalNode rdf:resource="#_C8791886C22D4621953707C77B1895A8" />
+    <cim:SvVoltage.angle>59.187640362</cim:SvVoltage.angle>
+    <cim:SvVoltage.v>6.74698477</cim:SvVoltage.v>
+  </cim:SvVoltage>
+  <cim:SvVoltage rdf:ID="_6BB959FBC9D8428D8DBBEE28F607D50C">
+    <cim:SvVoltage.TopologicalNode rdf:resource="#_3F2C59B2498443EC92A23C08C447B913" />
+    <cim:SvVoltage.angle>29.777730954</cim:SvVoltage.angle>
+    <cim:SvVoltage.v>20.590212509</cim:SvVoltage.v>
+  </cim:SvVoltage>
+  <cim:SvVoltage rdf:ID="_720ABF6AAB034C9E9E10EB7E054C0AFB">
+    <cim:SvVoltage.TopologicalNode rdf:resource="#_808E1D7D3D89490DA23A44586C719824" />
+    <cim:SvVoltage.angle>-0.024012711</cim:SvVoltage.angle>
+    <cim:SvVoltage.v>89.116785651</cim:SvVoltage.v>
+  </cim:SvVoltage>
+  <cim:SvVoltage rdf:ID="_8BEC3C5BD77A4F5892AABFB75283EF8D">
+    <cim:SvVoltage.TopologicalNode rdf:resource="#_E60E0F93D7494D9EBE73AFA3A9561EFF" />
+    <cim:SvVoltage.angle>-2.03E-07</cim:SvVoltage.angle>
+    <cim:SvVoltage.v>275.000000173</cim:SvVoltage.v>
+  </cim:SvVoltage>
+  <cim:SvVoltage rdf:ID="_8E30C119E6BE46CE9AF7681D37CAA693">
+    <cim:SvVoltage.TopologicalNode rdf:resource="#_1D0325938E624D0494C79A690705FBBB" />
+    <cim:SvVoltage.angle>58.959145987</cim:SvVoltage.angle>
+    <cim:SvVoltage.v>0.387386339</cim:SvVoltage.v>
+  </cim:SvVoltage>
+  <cim:SvVoltage rdf:ID="_8E70A878C57E430CA63D5636FEDE088B">
+    <cim:SvVoltage.TopologicalNode rdf:resource="#_2C3780F357BF4476AEB7FFD69527B8AB" />
+    <cim:SvVoltage.angle>29.69837875</cim:SvVoltage.angle>
+    <cim:SvVoltage.v>20.574336697</cim:SvVoltage.v>
+  </cim:SvVoltage>
+  <cim:SvVoltage rdf:ID="_A1741693FD9840A79DF5A5970EB8EE4A">
+    <cim:SvVoltage.TopologicalNode rdf:resource="#_7F161D42E4ED4D72B5679DA83B1FE5E7" />
+    <cim:SvVoltage.angle>28.976205582</cim:SvVoltage.angle>
+    <cim:SvVoltage.v>0.509824889</cim:SvVoltage.v>
+  </cim:SvVoltage>
+</rdf:RDF>
