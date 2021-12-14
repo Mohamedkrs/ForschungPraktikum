@@ -139,8 +139,16 @@ class MainWindow(QDialog):
                 property_name = QTableWidgetItem(key)
                 property_name.setFlags(property_name.flags() ^ QtCore.Qt.ItemIsEditable)
                 detail = val[0].__dict__["mRID"]
-                #c = QtWidgets.QButtonGroup()
                 btn1 = QtWidgets.QPushButton()
+                
+                for dicts in self.data_manager.data['topology'][mRID].__dict__[key]:
+                    if dicts.__dict__["mRID"] in self.data_manager.elements.values():
+                        for k,c in self.data_manager.elements.items():
+                            if c == dicts.__dict__["mRID"]:
+                                btn1 = QtWidgets.QToolButton()
+                                btn1.setPopupMode( Qt.QToolButton.MenuButtonPopup)
+                                btn1.addAction( QAction(k,self))
+                
                 btn1.setText("list")
                 btn1.clicked.connect(self.handleButtonClicked)
                 self.elemProperties.insertRow(self.elemProperties.rowCount())
@@ -193,7 +201,7 @@ class MainWindow(QDialog):
                         self.elemProperties.item(item, 0).text()] = self.elemProperties.cellWidget(item,
                                                                                                    1).currentText()
 
-            elif not isinstance(widget, QtWidgets.QPushButton):
+            elif not isinstance(widget, QtWidgets.QPushButton) and not isinstance(widget, QtWidgets.QToolButton):
                 self.data_manager.data['topology'][mRID].__dict__[
                     self.elemProperties.item(item, 0).text()] = self.elemProperties.item(item, 1).text()
 
