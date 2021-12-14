@@ -242,6 +242,7 @@ class MainWindow(QDialog):
                 itemtext = self.elemProperties.cellWidget(index.row(), index.column()).text()
                 items = self.elemView.findItems(itemtext, QtCore.Qt.MatchExactly)
                 self.elemView.setCurrentRow(self.elemView.row(items[0]))
+                self.clicked()
             elif self.elemProperties.cellWidget(index.row(), index.column()).text() == "list":
                 mRID = self.data_manager.elements[self.elemView.currentItem().text()]
                 self.show_list_data(
