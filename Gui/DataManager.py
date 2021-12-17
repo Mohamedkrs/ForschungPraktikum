@@ -5,27 +5,32 @@ import cimpy
 
 class ManageElements:
     cgmesver = "cgmes_v2_4_15"
-
+    #elems={}
     def __init__(self):
         self.elements = {}
+        self.profile_elements = {}
         self.data = []
 
-    def import_eq_data(self):
+    def import_eq_data(self, profile):
+
         if self.elements:
             self.elements.clear()
         try:
             class_attributes_list = cimpy.cimexport._get_class_attributes_with_references(self.data, self.cgmesver)
-            eq_classes_list = cimpy.cimexport._sort_classes_to_profile(class_attributes_list, ['EQ'])[0]['EQ']['classes']
+            eq_classes_list = cimpy.cimexport._sort_classes_to_profile(class_attributes_list, [profile])[0][profile][
+                'classes']
         except:
             eq_classes_list = self.data
-        
+            
         for _class in eq_classes_list:
-            if _class['name'] not in self.elements.keys():
-                self.elements[_class['name']] = _class['mRID']
-                i = 1
-            else:
-                self.elements[_class['name'] + " " + str(i)] = _class['mRID']
-                i += 1
+            if _class['mRID'] not in self.elements.values():
+                if _class['name'] not in self.elements.keys():
+                    self.elements[_class['name']] = _class['mRID']
+                    i = 1
+                else:
+                    self.elements[_class['name'] + " " + str(i)] = _class['mRID']
+                    i += 1
+        self.profile_elements[profile] = dict(self.elements)
         return self.elements.keys()
 
     def filter_data(self, elemName='', elemProp='', detail='', elem_andor_prop='', prop_andor_elem=''):

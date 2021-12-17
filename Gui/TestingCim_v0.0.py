@@ -14,19 +14,32 @@ import DataManager
 logging.basicConfig(filename='importCIGREMV.log', level=logging.INFO, filemode='w')
 
 
-def errorMessages(message):
+def messages(message, title):
     msgBox = QMessageBox()
     msgBox.setIcon(QMessageBox.Warning)
     msgBox.setText(message)
-    msgBox.setWindowTitle("Warning")
+    msgBox.setWindowTitle(title)
     msgBox.exec_()
+
+
+class StandardItem(Qt.QStandardItem):
+    def __init__(self, txt='', font_size=12, set_bold=False, color=Qt.QColor(0, 0, 0)):
+        super().__init__()
+
+        fnt = Qt.QFont('Open Sans', font_size)
+        fnt.setBold(set_bold)
+
+        self.setEditable(False)
+        self.setForeground(color)
+        self.setFont(fnt)
+        self.setText(txt)
 
 
 class MainWindow(QDialog):
     foo_dir = ""
     data_manager = DataManager.ManageElements()
-    tableWt = False
     firstLoad = True
+    modified = False
     mRIDold = None
 
     def __init__(self):
@@ -37,21 +50,25 @@ class MainWindow(QDialog):
         self.checkBoxList = self.findChildren(QtWidgets.QCheckBox)
         self.searchBtn.clicked.connect(self.browse_files)
         self.loadBtn.clicked.connect(self.import_from_xml)
-        self.elemView.itemClicked.connect(self.clicked)
+
         self.exportBtn.clicked.connect(self.export)
         self.elemProperties.itemChanged.connect(self.current_mRID)
         self.elemProperties.horizontalHeader().setSectionResizeMode(1, QtWidgets.QHeaderView.Stretch)
         self.filterBtn.clicked.connect(self.filtering)
         self.resetBtn.clicked.connect(self.import_from_xml)
         ######
+        self.treeView.doubleClicked.connect(self.clicked)
 
-        self.elemView.setContextMenuPolicy(QtCore.Qt.CustomContextMenu)
-        self.elemView.customContextMenuRequested[QtCore.QPoint].connect(self.rightMenuShow)
+    def getValue(self, val):
+        print(val.data())
+        print(val.row())
+        print(val.column())
+        print(val.parent().row())
 
     def rightMenuShow(self):  # shows drop down menu if left clicked
         data = self.data_manager.data['topology']['_013708A181A1425AA4002C36E0D092BA'].__dict__
         rightMenu = QMenu()
-        removeAction = QAction(u"Show Dynamics", self, triggered=lambda:self.show_list_data(data))
+        removeAction = QAction(u"Show Dynamics", self, triggered=lambda: self.show_list_data(data))
         rightMenu.addAction(removeAction)
 
         # addAction = QAction(u"add", self, triggered=self.addItem)  # You can also specify custom object events
@@ -60,20 +77,19 @@ class MainWindow(QDialog):
 
     def import_from_xml(self):
 
-        self.elemView.clear()
         self.elemProperties.clearContents()
         self.elemProperties.setRowCount(0)
         file_path = self.folderPath.text()
         # Parse importedXml Files ###
         if not file_path:
-            errorMessages("The Path is Empty")
+            messages("The Path is Empty", "Warning")
             return
         example = Path(file_path).resolve()
         xml_files = []
         for file in example.glob('*.xml'):
             xml_files.append(str(file.absolute()))
         if len(xml_files) == 0:
-            errorMessages("The folder doesnt contain any xml files")
+            messages("The folder doesnt contain any xml files", "Warning")
             return
         if not self.exportBtn.isEnabled():
             self.exportBtn.setEnabled(True)
@@ -82,11 +98,19 @@ class MainWindow(QDialog):
         cgmesver = "cgmes_v2_4_15"
         import_result = cimpy.cim_import(xml_files, cgmesver)
         self.data_manager.data = import_result
-        elemViewData = self.data_manager.import_eq_data()
-        self.elemView.addItems(elemViewData)
+
+        treeModel = Qt.QStandardItemModel()
+        rootNode = treeModel.invisibleRootItem()
 
         for checkbox in self.checkBoxList:
             if checkbox.text() in self.data_manager.data['meta_info']['profiles'].keys():
+                profile = StandardItem(checkbox.text(), 9, set_bold=True)
+
+                for elem in self.data_manager.import_eq_data(checkbox.text()):
+                    profile.appendRow(StandardItem(elem, 9))
+                rootNode.appendRow(profile)
+                self.treeView.setModel(treeModel)
+
                 checkbox.setCheckable(True)
                 checkbox.setChecked(True)
             else:
@@ -94,16 +118,33 @@ class MainWindow(QDialog):
                 checkbox.setCheckable(False)
 
     def current_mRID(self):
-        if not self.data_manager.elements[self.elemView.currentItem().text()] == self.mRIDold:
-            self.mRIDold = self.data_manager.elements[self.elemView.currentItem().text()]
+        #print("item changed")
+        self.modified = True
+        if not self.data_manager.profile_elements[self.treeView.currentIndex().parent().data()][
+                   self.treeView.currentIndex().data()] == self.mRIDold:
+            self.mRIDold = self.data_manager.profile_elements[self.treeView.currentIndex().parent().data()][
+                self.treeView.currentIndex().data()]
 
-    def clicked(self):
+    def clicked(self, val):
+        # print(val.data())
+        # print(val.text())
+        mRID = ""
+        if val.data() is not None:
+            try:
+                mRID = self.data_manager.profile_elements[val.parent().data()][val.data()]
+                if self.firstLoad:  # set old mRID
+                    self.firstLoad = False
+                    self.mRIDold = self.data_manager.profile_elements[val.parent().data()][val.data()]
+            except:
+                return
+        else:
+            try:
+                mRID = self.data_manager.profile_elements[val.parent().text()][val.text()]
+            except:
+                return
 
-        if self.firstLoad:  # set old mRID
-            self.firstLoad = False
-            self.mRIDold = self.data_manager.elements[self.elemView.currentItem().text()]
-        self.update_data(self.mRIDold)
-        mRID = self.data_manager.elements[self.elemView.currentItem().text()]
+        if self.modified: self.update_data(self.mRIDold)
+        
         row = 0
         self.elemProperties.setRowCount(0)
         for key, val in self.data_manager.data['topology'][mRID].__dict__.items():
@@ -136,6 +177,7 @@ class MainWindow(QDialog):
                         c.addItems([str(detail), "False"])
                     else:
                         c.addItems([str(detail), "True"])
+                    c.currentTextChanged.connect(self.current_mRID)
                     c.installEventFilter(self)
                     self.elemProperties.setCellWidget(row, 1, c)
 
@@ -144,6 +186,7 @@ class MainWindow(QDialog):
                     c.addItems(
                         [val, 'cell11', 'cell12', 'cell13',
                          'cell15', ])
+                    c.currentTextChanged.connect(self.current_mRID)
                     self.elemProperties.setCellWidget(row, 1, c)
                 else:
                     self.elemProperties.setItem(row, 1, property_detail)
@@ -182,7 +225,6 @@ class MainWindow(QDialog):
                 property_detail = QTableWidgetItem(str(detail))
                 property_detail.setFlags(property_detail.flags() ^ QtCore.Qt.ItemIsEditable)
                 self.elemProperties.insertRow(self.elemProperties.rowCount())
-                # self.elemProperties.setItem(row, 1, property_detail)
                 self.elemProperties.setItem(row, 0, property_name)
                 self.elemProperties.setCellWidget(row, 1, btn)
             else:
@@ -194,12 +236,12 @@ class MainWindow(QDialog):
                 self.elemProperties.insertRow(self.elemProperties.rowCount())
                 self.elemProperties.setItem(row, 0, property_name)
                 self.elemProperties.setCellWidget(row, 1, btn)
-                # self.elemProperties.setItem(row, 1, property_name)
+
 
             row += 1
+        self.modified = False
 
     def update_data(self, mRID):
-
         for item in range(self.elemProperties.rowCount()):
 
             widget = self.elemProperties.cellWidget(item, 1)
@@ -216,8 +258,6 @@ class MainWindow(QDialog):
             elif not isinstance(widget, QtWidgets.QPushButton) and not isinstance(widget, QtWidgets.QToolButton):
                 self.data_manager.data['topology'][mRID].__dict__[
                     self.elemProperties.item(item, 0).text()] = self.elemProperties.item(item, 1).text()
-
-            # print(self.elemProperties.item(item,0).text())
 
     # Export data depending on checked boxes
     def export(self):
@@ -240,6 +280,7 @@ class MainWindow(QDialog):
         for filename12 in glob.glob(output_dir + "/*"):
             os.remove(filename12)
         cimpy.cim_export(export_data, output_dir + "/output", "cgmes_v2_4_15", active_profile_list)
+        messages("Data successfully exported", "info")
 
     def eventFilter(self, source, event):
         if (event.type() == QtCore.QEvent.Wheel and
@@ -253,6 +294,18 @@ class MainWindow(QDialog):
         if importpath:
             self.folderPath.setText(importpath)
 
+    def iterItems(self, root):
+        if root is not None:
+            stack = [root]
+            while stack:
+                parent = stack.pop(0)
+                for row in range(parent.rowCount()):
+                    for column in range(parent.columnCount()):
+                        child = parent.child(row, column)
+                        yield child
+                        if child.hasChildren():
+                            stack.append(child)
+
     def handleButtonClicked(self):
         # button = QtGui.qApp.focusWidget()
         button = self.sender()
@@ -260,13 +313,41 @@ class MainWindow(QDialog):
         if index.isValid():
             if self.elemProperties.cellWidget(index.row(), index.column()).text() in self.data_manager.elements.keys():
                 itemtext = self.elemProperties.cellWidget(index.row(), index.column()).text()
-                items = self.elemView.findItems(itemtext, QtCore.Qt.MatchExactly)
-                self.elemView.setCurrentRow(self.elemView.row(items[0]))
-                self.clicked()
+                count = self.treeView.model().rowCount()
+                root = self.treeView.model().invisibleRootItem()
+                # for row in range(root.rowCount()):
+                #     row_item = root.child(row, 0)
+                #    if row_item.hasChildren():
+                #       for childIndex in range(row_item.rowCount()):
+                #            
+                #           print(row_item.child(childIndex, 0).data())
+                root = self.treeView.model().invisibleRootItem()
+                for item in self.iterItems(root):
+                    if itemtext == item.text():
+                        self.treeView.selectionModel().setCurrentIndex(item.index(),
+                                                                       Qt.QItemSelectionModel.ClearAndSelect)
+                        self.clicked(item)
+                        break
+                # for i in range(count):
+                # for k in range(self.treeView.model().index(i,0).item().childCount()):
+                #    print(self.treeView.model().index(i,0).model().index(k,0).data())
+
+                # print(count)
+                # it = QTreeWidgetItemIterator(self.treeView)
+                # root = self.treeView.currentIndex().parent().invisibleRootItem()
+
+                # child_count = root.childCount()
+                # for i in range(child_count):
+                #    item = root.child(i)
+                #    print(item.data())
+                # items = self.treeView.findItems(itemtext, QtCore.Qt.MatchExactly)
+                # self.elemView.setCurrentRow(self.elemView.row(items[0]))
+                # self.clicked()
             elif self.elemProperties.cellWidget(index.row(), index.column()).text() == "show details":
                 mRID = self.data_manager.elements[self.elemView.currentItem().text()]
                 self.show_list_data(
-                    self.data_manager.data['topology'][mRID].__dict__[self.elemProperties.item(index.row(), 0).text()].__dict__)
+                    self.data_manager.data['topology'][mRID].__dict__[
+                        self.elemProperties.item(index.row(), 0).text()].__dict__)
 
     def show_list_data(self, data):
 
@@ -289,7 +370,7 @@ class MainWindow(QDialog):
             self.elemView.clear()
             self.elemView.addItems(res)
         elif filter.elem_andor_prop != '':
-            errorMessages("No Matches Found")
+            messages("No Matches Found", "Error")
 
 
 class ListData(QDialog):
@@ -325,7 +406,7 @@ class ListData(QDialog):
 
     def clicked(self):
 
-        #mRID = "_48746FEF975E4732921B39AA07924D08"
+        # mRID = "_48746FEF975E4732921B39AA07924D08"
         row = 0
         self.elemProperties.setRowCount(0)
         for key, val in self.data.items():
