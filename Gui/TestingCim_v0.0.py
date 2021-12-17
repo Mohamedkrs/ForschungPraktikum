@@ -32,23 +32,34 @@ class MainWindow(QDialog):
     def __init__(self):
         super(MainWindow, self).__init__()
         loadUi("Gui.ui", self)
-        # self.elemProperties.setMouseTracking(True)
-        # self.current_hover = [0, 0]
-        ##self.elemProperties.itemEntered.connect(self.cellHover)
 
         self.noWheelCombos = []
-        self.list = self.findChildren(QtWidgets.QCheckBox)
+        self.checkBoxList = self.findChildren(QtWidgets.QCheckBox)
         self.searchBtn.clicked.connect(self.browse_files)
         self.loadBtn.clicked.connect(self.import_from_xml)
         self.elemView.itemClicked.connect(self.clicked)
-        #self.elemView.itemSelectionChanged.connect(self.clicked)
         self.exportBtn.clicked.connect(self.export)
         self.elemProperties.itemChanged.connect(self.current_mRID)
         self.elemProperties.horizontalHeader().setSectionResizeMode(1, QtWidgets.QHeaderView.Stretch)
         self.filterBtn.clicked.connect(self.filtering)
         self.resetBtn.clicked.connect(self.import_from_xml)
+        ######
+
+        self.elemView.setContextMenuPolicy(QtCore.Qt.CustomContextMenu)
+        self.elemView.customContextMenuRequested[QtCore.QPoint].connect(self.rightMenuShow)
+
+    def rightMenuShow(self):  # shows drop down menu if left clicked
+        data = self.data_manager.data['topology']['_013708A181A1425AA4002C36E0D092BA'].__dict__
+        rightMenu = QMenu()
+        removeAction = QAction(u"Show Dynamics", self, triggered=lambda:self.show_list_data(data))
+        rightMenu.addAction(removeAction)
+
+        # addAction = QAction(u"add", self, triggered=self.addItem)  # You can also specify custom object events
+        # rightMenu.addAction(addAction)
+        rightMenu.exec_(QtGui.QCursor.pos())
 
     def import_from_xml(self):
+
         self.elemView.clear()
         self.elemProperties.clearContents()
         self.elemProperties.setRowCount(0)
@@ -71,15 +82,16 @@ class MainWindow(QDialog):
         cgmesver = "cgmes_v2_4_15"
         import_result = cimpy.cim_import(xml_files, cgmesver)
         self.data_manager.data = import_result
-        elemViewData=self.data_manager.import_eq_data()
+        elemViewData = self.data_manager.import_eq_data()
         self.elemView.addItems(elemViewData)
 
-        for key in self.data_manager.data['meta_info']['profiles']:
-            for checkbox in self.list:
-                if key == checkbox.text():
-                    checkbox.setCheckable(True)
-                    checkbox.setChecked(True)
-                    break
+        for checkbox in self.checkBoxList:
+            if checkbox.text() in self.data_manager.data['meta_info']['profiles'].keys():
+                checkbox.setCheckable(True)
+                checkbox.setChecked(True)
+            else:
+                checkbox.setChecked(False)
+                checkbox.setCheckable(False)
 
     def current_mRID(self):
         if not self.data_manager.elements[self.elemView.currentItem().text()] == self.mRIDold:
@@ -140,16 +152,17 @@ class MainWindow(QDialog):
                 property_name.setFlags(property_name.flags() ^ QtCore.Qt.ItemIsEditable)
                 detail = val[0].__dict__["mRID"]
                 btn1 = QtWidgets.QPushButton()
-                
+                btn1.setText("show details")
+
                 for dicts in self.data_manager.data['topology'][mRID].__dict__[key]:
                     if dicts.__dict__["mRID"] in self.data_manager.elements.values():
-                        for k,c in self.data_manager.elements.items():
+                        for k, c in self.data_manager.elements.items():
                             if c == dicts.__dict__["mRID"]:
                                 btn1 = QtWidgets.QToolButton()
-                                btn1.setPopupMode( Qt.QToolButton.MenuButtonPopup)
-                                btn1.addAction( QAction(k,self))
-                
-                btn1.setText("list")
+                                btn1.setPopupMode(Qt.QToolButton.MenuButtonPopup)
+                                btn1.addAction(QAction(k, self))
+                                btn1.setText("list")
+
                 btn1.clicked.connect(self.handleButtonClicked)
                 self.elemProperties.insertRow(self.elemProperties.rowCount())
                 self.elemProperties.setItem(row, 0, property_name)
@@ -164,7 +177,7 @@ class MainWindow(QDialog):
                 if detail in self.data_manager.elements.values():
                     btn.setText([k for k, v in self.data_manager.elements.items() if v == detail][0])
                 else:
-                    btn.setText(detail)
+                    btn.setText("show details")
                 btn.clicked.connect(self.handleButtonClicked)
                 property_detail = QTableWidgetItem(str(detail))
                 property_detail.setFlags(property_detail.flags() ^ QtCore.Qt.ItemIsEditable)
@@ -175,9 +188,8 @@ class MainWindow(QDialog):
             else:
                 property_name = QTableWidgetItem(key)
                 property_name.setFlags(property_name.flags() ^ QtCore.Qt.ItemIsEditable)
-                # detail = self.data_manager.data['topology'][mRID].__dict__[key][0].__dict__["mRID"]
                 btn = QtWidgets.QPushButton()
-                btn.setText("another class")
+                btn.setText("show data")
                 btn.clicked.connect(self.handleButtonClicked)
                 self.elemProperties.insertRow(self.elemProperties.rowCount())
                 self.elemProperties.setItem(row, 0, property_name)
@@ -251,28 +263,19 @@ class MainWindow(QDialog):
                 items = self.elemView.findItems(itemtext, QtCore.Qt.MatchExactly)
                 self.elemView.setCurrentRow(self.elemView.row(items[0]))
                 self.clicked()
-            elif self.elemProperties.cellWidget(index.row(), index.column()).text() == "list":
+            elif self.elemProperties.cellWidget(index.row(), index.column()).text() == "show details":
                 mRID = self.data_manager.elements[self.elemView.currentItem().text()]
                 self.show_list_data(
-                    self.data_manager.data['topology'][mRID].__dict__[self.elemProperties.item(index.row(), 0).text()])
+                    self.data_manager.data['topology'][mRID].__dict__[self.elemProperties.item(index.row(), 0).text()].__dict__)
 
     def show_list_data(self, data):
-        for dicts in data:
-            if dicts.__dict__["mRID"] in self.data_manager.elements.values():
-                for k,c in self.data_manager.elements.items():
-                    if c == dicts.__dict__["mRID"]:
-                        print(k)
-            else:
-                print("nope")
-                
-        #table = ListData()
-        #table.data = data
-        #print(data)
-        #table.displayView()
 
-        #table.exec()
-    def printint(self):
-        print("hi")
+        table = ListData(data)
+        # table.data = data
+        # print(data)
+        # table.displayView()
+
+        table.exec()
 
     def filtering(self):
         filter = Filtering()
@@ -290,30 +293,43 @@ class MainWindow(QDialog):
 
 
 class ListData(QDialog):
-    data = []
-    data_managertwo = DataManager.ManageElements()
     tabledata = {}
-    def __init__(self):
+    data = None
+
+    def __init__(self, data):
+        self.data = data
+        self.data_managertwo = DataManager.ManageElements()
         super(ListData, self).__init__()
-        loadUi("ListData.ui", self)
-        self.elemView.itemClicked.connect(self.clicked)
-        #self.data_managertwo.data=self.data
+        if isinstance(data, list):
+            loadUi("ListData.ui", self)
+            self.displayView()
+            self.elemView.itemClicked.connect(self.clicked)
+        else:
+            loadUi("listProp.ui", self)
+            self.clicked()
+        # self.data_managertwo.data=self.data
+
     def expand_dict(self):
-        for dicts in self.data:
-            print("testing")
-            print(dicts.__dict__)
-            self.data_managertwo.data.append(dicts.__dict__)
+        if isinstance(self.data, list):
+            for dicts in self.data:
+                # print("testing")
+                # print(dicts.__dict__)
+                self.data_managertwo.data.append(dicts.__dict__)
+        else:
+            print(self.data.__dict__)
+            self.data_managertwo.data.append(self.data.__dict__)
+
     def displayView(self):
         self.expand_dict()
         self.elemView.addItems(self.data_managertwo.import_eq_data())
 
     def clicked(self):
 
-        mRID = "_48746FEF975E4732921B39AA07924D08"
+        #mRID = "_48746FEF975E4732921B39AA07924D08"
         row = 0
         self.elemProperties.setRowCount(0)
-        for key, val in self.tabledata.items():
-            if self.tabledata[key] is None:
+        for key, val in self.data.items():
+            if self.data[key] is None:
 
                 property_name = QTableWidgetItem(key)
                 property_name.setFlags(property_name.flags() ^ QtCore.Qt.ItemIsEditable)
@@ -322,12 +338,12 @@ class ListData(QDialog):
                 self.elemProperties.insertRow(self.elemProperties.rowCount())
                 self.elemProperties.setItem(row, 0, property_name)
                 self.elemProperties.setItem(row, 1, property_detail)
-            elif isinstance(self.tabledata[key], (str, int, float, bool)):
+            elif isinstance(self.data[key], (str, int, float, bool)):
                 self.elemProperties.insertRow(self.elemProperties.rowCount())
                 property_name = QTableWidgetItem(key)
                 property_name.setFlags(property_name.flags() ^ QtCore.Qt.ItemIsEditable)
 
-                detail = self.tabledata[key]
+                detail = self.data[key]
                 if detail is None:
                     property_detail = QTableWidgetItem("None")
                 else:
@@ -348,15 +364,15 @@ class ListData(QDialog):
                 elif "operatingMode" in key:
                     c = QtWidgets.QComboBox()
                     c.addItems(
-                        [self.tabledata[key], 'cell11', 'cell12', 'cell13',
+                        [self.data[key], 'cell11', 'cell12', 'cell13',
                          'cell15', ])
                     self.elemProperties.setCellWidget(row, 1, c)
                 else:
                     self.elemProperties.setItem(row, 1, property_detail)
-            elif isinstance(self.tabledata[key], list):
+            elif isinstance(self.data[key], list):
                 property_name = QTableWidgetItem(key)
                 property_name.setFlags(property_name.flags() ^ QtCore.Qt.ItemIsEditable)
-                detail = self.tabledata[key][0].__dict__["mRID"]
+                detail = self.data[key][0].__dict__["mRID"]
                 btn1 = QtWidgets.QPushButton()
                 btn1.setText("list")
                 # btn1.clicked.connect(self.handleButtonClicked)
@@ -364,10 +380,10 @@ class ListData(QDialog):
                 self.elemProperties.setItem(row, 0, property_name)
                 self.elemProperties.setCellWidget(row, 1, btn1)
                 # self.elemProperties.setItem(row, 1, property_name)
-            elif "mRID" in self.tabledata[key].__dict__:
+            elif "mRID" in self.data[key].__dict__:
                 property_name = QTableWidgetItem(key)
                 property_name.setFlags(property_name.flags() ^ QtCore.Qt.ItemIsEditable)
-                detail = self.tabledata[key].__dict__["mRID"]
+                detail = self.data[key].__dict__["mRID"]
                 btn = QtWidgets.QPushButton()
 
                 # if detail in self.data_manager.elements.values():

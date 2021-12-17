@@ -18,6 +18,7 @@ class ManageElements:
             eq_classes_list = cimpy.cimexport._sort_classes_to_profile(class_attributes_list, ['EQ'])[0]['EQ']['classes']
         except:
             eq_classes_list = self.data
+        
         for _class in eq_classes_list:
             if _class['name'] not in self.elements.keys():
                 self.elements[_class['name']] = _class['mRID']

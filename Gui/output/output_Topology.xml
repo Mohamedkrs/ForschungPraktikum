@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:cim="http://iec.ch/TC57/2013/CIM-schema-cim16#" xmlns:entsoe="http://entsoe.eu/CIM/SchemaExtension/3/1#" xmlns:md="http://iec.ch/TC57/61970-552/ModelDescription/1#" >
 <md:FullModel rdf:about="urn:uuid:c87ff686-5449-11ec-8aad-00155d9cdc0b">
-    <md:Model.created>14/12/2021 14:32:18</md:Model.created>
+    <md:Model.created>16/12/2021 21:02:45</md:Model.created>
     <md:Model.modelingAuthoritySet>FAU</md:Model.modelingAuthoritySet>
     <md:Model.profile>http://entsoe.eu/CIM/Topology/4/1</md:Model.profile>
     <md:Model.DependentOn rdf:resource="urn:uuid:c87ff685-5449-11ec-8aad-00155d9cdc0b"/>

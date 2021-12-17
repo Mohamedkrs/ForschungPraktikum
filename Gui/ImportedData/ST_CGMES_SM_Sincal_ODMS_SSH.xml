@@ -11,6 +11,12 @@
     <cim:ControlArea.netInterchange>0</cim:ControlArea.netInterchange>
     <cim:ControlArea.pTolerance>0</cim:ControlArea.pTolerance>
   </cim:ControlArea>
+    <cim:RegulatingControl rdf:about="#_f648fcfc-6a0c-8a13-dfa7-61bea29e7ba6">
+    <cim:RegulatingControl.discrete>false</cim:RegulatingControl.discrete>
+    <cim:RegulatingControl.enabled>true</cim:RegulatingControl.enabled>
+    <cim:RegulatingControl.targetValue>110</cim:RegulatingControl.targetValue>
+    <cim:RegulatingControl.targetValueUnitMultiplier rdf:resource="http://iec.ch/TC57/2013/CIM-schema-cim16#UnitMultiplier.k" />
+  </cim:RegulatingControl>
   <cim:EnergyConsumer rdf:about="#_5DDCA8884C7E4EC8965F9A4295976A5E">
     <cim:EnergyConsumer.p>600</cim:EnergyConsumer.p>
     <cim:EnergyConsumer.q>76</cim:EnergyConsumer.q>

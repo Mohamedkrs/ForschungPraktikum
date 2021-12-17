@@ -287,6 +287,13 @@
          </property>
         </widget>
        </item>
+       <item>
+        <widget class="QCheckBox" name="glCheckBox">
+         <property name="text">
+          <string>GL</string>
+         </property>
+        </widget>
+       </item>
       </layout>
      </item>
      <item>
