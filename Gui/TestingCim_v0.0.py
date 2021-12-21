@@ -493,6 +493,7 @@ def main():
     main_window = MainWindow()
     widget = QtWidgets.QStackedWidget()
     widget.addWidget(main_window)
+    widget.setWindowTitle("BadAss")
     widget.adjustSize()
     widget.setWindowTitle("CimPy Converter")
     widget.show()
