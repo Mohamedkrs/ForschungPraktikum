@@ -21,16 +21,18 @@ class ManageElements:
                 'classes']
         except:
             eq_classes_list = self.data
-            
         for _class in eq_classes_list:
-            if _class['mRID'] not in self.elements.values():
-                if _class['name'] not in self.elements.keys():
-                    self.elements[_class['name']] = _class['mRID']
-                    i = 1
-                else:
-                    self.elements[_class['name'] + " " + str(i)] = _class['mRID']
-                    i += 1
-        self.profile_elements[profile] = dict(self.elements)
+            if 'mRID' in _class:
+                if _class['mRID'] not in self.profile_elements.values():
+                    if _class['mRID'] not in self.elements.values():
+                        if _class['name'] not in self.elements.keys():
+                            self.elements[_class['name']] = _class['mRID']
+                            i = 1
+                        else:
+                            self.elements[_class['name'] + " " + str(i)] = _class['mRID']
+                            i += 1
+        for key, val in self.elements.items():
+            self.profile_elements[key] = val
         return self.elements.keys()
 
     def filter_data(self, elemName='', elemProp='', detail='', elem_andor_prop='', prop_andor_elem=''):
@@ -38,7 +40,7 @@ class ManageElements:
         elem_name_dict = {}
         prop_dict = {}
         detail_dict = {}
-        for key, val in self.elements.items():
+        for key, val in self.profile_elements.items():
             if elemName != '':
                 if elemName.lower() in key.lower():
                     elem_name_dict[key] = val
@@ -57,15 +59,16 @@ class ManageElements:
         if elem_andor_prop == "and" and prop_andor_elem == "and":
             if set(elem_name_dict.keys()) & set(prop_dict.keys()) & set(detail_dict.keys()):
                 for item in set(detail_dict.keys()) & set(prop_dict.keys()):
-                    filtered_elements[item] = self.elements[item]
+                    filtered_elements[item] = self.profile_elements[item]
         elif elem_andor_prop == "and":
             if set(elem_name_dict.keys()) & set(prop_dict.keys()):
                 for item in set(elem_name_dict.keys()) & set(prop_dict.keys()):
-                    filtered_elements[item] = self.elements[item]
+                    filtered_elements[item] = self.profile_elements[item]
         elif prop_andor_elem == "and":
             if set(detail_dict.keys()) & set(prop_dict.keys()):
                 for item in set(detail_dict.keys()) & set(prop_dict.keys()):
-                    filtered_elements[item] = self.elements[item]
+                    filtered_elements[item] = self.profile_elements[item]
         else:
             filtered_elements = {**elem_name_dict, **prop_dict, **detail_dict}
+            print(filtered_elements)
         return filtered_elements.keys()

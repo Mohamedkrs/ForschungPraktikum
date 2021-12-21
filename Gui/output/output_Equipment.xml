@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:cim="http://iec.ch/TC57/2013/CIM-schema-cim16#" xmlns:entsoe="http://entsoe.eu/CIM/SchemaExtension/3/1#" xmlns:md="http://iec.ch/TC57/61970-552/ModelDescription/1#" >
 <md:FullModel rdf:about="urn:uuid:c87ff685-5449-11ec-8aad-00155d9cdc0b">
-    <md:Model.created>16/12/2021 21:02:45</md:Model.created>
+    <md:Model.created>18/12/2021 00:10:39</md:Model.created>
     <md:Model.modelingAuthoritySet>FAU</md:Model.modelingAuthoritySet>
     <md:Model.profile>http://entsoe.eu/CIM/EquipmentCore/3/1</md:Model.profile>
     <md:Model.profile>http://entsoe.eu/CIM/EquipmentOperation/3/1</md:Model.profile>
@@ -230,6 +230,7 @@
     <entsoe:IdentifiedObject.shortName>SMFeeder</entsoe:IdentifiedObject.shortName>
     <cim:Equipment.aggregate>false</cim:Equipment.aggregate>
     <cim:Equipment.EquipmentContainer rdf:resource="#_61192A7BC7214D6CBE52CD311413D159"/>
+    <cim:RegulatingCondEq.RegulatingControl rdf:resource="#_f648fcfc-6a0c-8a13-dfa7-61bea29e7ba6"/>
     <cim:RotatingMachine.GeneratingUnit rdf:resource="#_085E1F732997474DB28FAF265F73C643"/>
     <cim:RotatingMachine.ratedPowerFactor>0.9</cim:RotatingMachine.ratedPowerFactor>
     <cim:RotatingMachine.ratedS>1000</cim:RotatingMachine.ratedS>
@@ -253,6 +254,11 @@
     <cim:SynchronousMachine.x0>0.0</cim:SynchronousMachine.x0>
     <cim:SynchronousMachine.x2>0.0</cim:SynchronousMachine.x2>
 </cim:SynchronousMachine>
+<cim:RegulatingControl rdf:ID="_f648fcfc-6a0c-8a13-dfa7-61bea29e7ba6">
+    <cim:IdentifiedObject.name>SMFeeder</cim:IdentifiedObject.name>
+    <cim:RegulatingControl.Terminal rdf:resource="#_8A6A5AF47AC04854856D17515E1BEC9B"/>
+    <cim:RegulatingControl.mode rdf:resource="http://iec.ch/TC57/2013/CIM-schema-cim16#RegulatingControlModeKind.voltage"/>
+</cim:RegulatingControl>
 <cim:Terminal rdf:ID="_2803BDD5CE2049C085D3B374F79A83A7">
     <cim:IdentifiedObject.name>Load1- T1</cim:IdentifiedObject.name>
     <cim:ACDCTerminal.sequenceNumber>1</cim:ACDCTerminal.sequenceNumber>
@@ -272,6 +278,7 @@
     <cim:ACDCTerminal.sequenceNumber>1</cim:ACDCTerminal.sequenceNumber>
     <cim:Terminal.ConductingEquipment rdf:resource="#_B88EE454C6554BB898474BAE77FC5C88"/>
     <cim:Terminal.phases rdf:resource="http://iec.ch/TC57/2013/CIM-schema-cim16#PhaseCode.ABC"/>
+    <cim:Terminal.RegulatingControl rdf:resource="#_f648fcfc-6a0c-8a13-dfa7-61bea29e7ba6"/>
     <cim:Terminal.ConnectivityNode rdf:resource="#_e1a9d479-1f46-4e36-a960-316cccede0ba"/>
 </cim:Terminal>
 <cim:Terminal rdf:ID="_968E273FCF5C42A0B0CEC3797B4B8E0A">
