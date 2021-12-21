@@ -30,7 +30,7 @@ INFO:cimpy.cimimport:CIM object SvPowerFlow created : 4 times
 INFO:cimpy.cimimport:CIM object SvStatus created : 5 times
 INFO:cimpy.cimimport:CIM object SvVoltage created : 2 times
 INFO:cimpy.cimimport:CIM object TopologicalNode created : 2 times
-INFO:cimpy.cimimport:Created totally 45 CIM objects in 0.04388236999511719s
+INFO:cimpy.cimimport:Created totally 45 CIM objects in 0.04588031768798828s
 
 
 INFO:cimpy.cimexport:Class SynchronousMachineTimeConstantReactance was read from profile DY but this profile is not active for the export. Usedefault profile from possibleProfileList.

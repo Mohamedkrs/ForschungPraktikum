@@ -248,7 +248,9 @@ def handleButtonClicked(window):
 
     index = window.elemProperties.indexAt(button.pos())
     if isinstance(button, Qt.QMenu):
-        if button.sender().text() in window.data_manager.profile_elements.keys():
+        if "list" not in button.title():
+            print(button.sender().text())
+        elif button.sender().text() in window.data_manager.profile_elements.keys():
             itemtext = button.sender().text()
             root = window.treeView.model().invisibleRootItem()
             for item in window.iterItems(root):
@@ -268,7 +270,6 @@ def handleButtonClicked(window):
                                                                      Qt.QItemSelectionModel.ClearAndSelect)
                     clicked(window)
                     break
-
         else:
 
             # print(self.treeView.selectedItems())
@@ -314,11 +315,18 @@ def clicked(window, imported_dict=None):
 
             property_name = QTableWidgetItem(key)
             property_name.setFlags(property_name.flags() ^ QtCore.Qt.ItemIsEditable)
-            property_detail = QTableWidgetItem("None")
-            property_detail.setFlags(property_name.flags() ^ QtCore.Qt.ItemIsEditable)
+            btn = QtWidgets.QToolButton()
+            btn.setText("None")
+            btn.setPopupMode(Qt.QToolButton.MenuButtonPopup)
+            menu_filters = QtWidgets.QMenu()
+            menu_filters.addAction("Add")
+            menu_filters.addAction("Delete")
+            btn.setMenu(menu_filters)
+            menu_filters.triggered[QAction].connect(lambda: handleButtonClicked(window))
             window.elemProperties.insertRow(window.elemProperties.rowCount())
             window.elemProperties.setItem(row, 0, property_name)
-            window.elemProperties.setItem(row, 1, property_detail)
+            window.elemProperties.setCellWidget(row, 1, btn)
+
         elif isinstance(val, (str, int, float, bool)):
             window.elemProperties.insertRow(window.elemProperties.rowCount())
             property_name = QTableWidgetItem(key)
@@ -363,18 +371,15 @@ def clicked(window, imported_dict=None):
         elif isinstance(val, list):
             property_name = QTableWidgetItem(key)
             property_name.setFlags(property_name.flags() ^ QtCore.Qt.ItemIsEditable)
-            detail = val[0].__dict__["mRID"]
-            btn1 = QtWidgets.QPushButton()
-            btn1.setText("show list")
             btn1 = QtWidgets.QToolButton()
+            btn1.setText("show list")
             btn1.setPopupMode(Qt.QToolButton.MenuButtonPopup)
-            btn1.setText("list")
             menu_filters = QtWidgets.QMenu()
             for dicts in window.data_manager.data['topology'][mRID].__dict__[key]:
                 if dicts.__dict__["mRID"] in window.data_manager.profile_elements.values():
                     for k, c in window.data_manager.profile_elements.items():
                         if c == dicts.__dict__["mRID"]:
-                            action = menu_filters.addAction(k)
+                            menu_filters.addAction(k)
 
             btn1.setMenu(menu_filters)
             menu_filters.triggered[QAction].connect(lambda: handleButtonClicked(window))
