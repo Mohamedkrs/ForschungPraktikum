@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:profile="http://www.entsoe.eu/2012/profile1_v16#" xmlns:sin="http://www.simtec.cc/cim/sincal-cim-rdf-syntax#" xmlns:cim="http://iec.ch/TC57/2013/CIM-schema-cim16#" xmlns:entsoe="http://entsoe.eu/CIM/SchemaExtension/3/1#" xmlns:entsoe2="http://entsoe.eu/CIM/SchemaExtension/3/2#" xmlns:md="http://iec.ch/TC57/61970-552/ModelDescription/1#" >
+<md:FullModel rdf:about="urn:uuid:c87ff688-5449-11ec-8aad-00155d9cdc0b">
+    <md:Model.created>22/02/2022 13:04:50</md:Model.created>
+    <md:Model.modelingAuthoritySet>FAU</md:Model.modelingAuthoritySet>
+    <md:Model.profile>http://entsoe.eu/CIM/StateVariables/4/1</md:Model.profile>
+    <md:Model.DependentOn rdf:resource="urn:uuid:c87ff686-5449-11ec-8aad-00155d9cdc0b"/>
+    <md:Model.DependentOn rdf:resource="urn:uuid:c87ff687-5449-11ec-8aad-00155d9cdc0b"/>
+</md:FullModel>
+<cim:SvPowerFlow rdf:ID="_20F64E94724E4EBDB2B38037B038913C">
+    <cim:SvPowerFlow.Terminal rdf:resource="#_968E273FCF5C42A0B0CEC3797B4B8E0A"/>
+    <cim:SvPowerFlow.p>600</cim:SvPowerFlow.p>
+    <cim:SvPowerFlow.q>76</cim:SvPowerFlow.q>
+</cim:SvPowerFlow>
+<cim:SvPowerFlow rdf:ID="_A46C1B291C8F4FE0A7F1477F0BE3B5EA">
+    <cim:SvPowerFlow.Terminal rdf:resource="#_CC0FC93E16BF47B0BD1C159E3840FC79"/>
+    <cim:SvPowerFlow.p>-475</cim:SvPowerFlow.p>
+    <cim:SvPowerFlow.q>-298.242037642</cim:SvPowerFlow.q>
+</cim:SvPowerFlow>
+<cim:SvPowerFlow rdf:ID="_A564CC4925A34751AE61560A2462A4FE">
+    <cim:SvPowerFlow.Terminal rdf:resource="#_2803BDD5CE2049C085D3B374F79A83A7"/>
+    <cim:SvPowerFlow.p>0</cim:SvPowerFlow.p>
+    <cim:SvPowerFlow.q>0</cim:SvPowerFlow.q>
+</cim:SvPowerFlow>
+<cim:SvPowerFlow rdf:ID="_EE5FC2CF0F714299BD0D02D43B72E994">
+    <cim:SvPowerFlow.Terminal rdf:resource="#_8A6A5AF47AC04854856D17515E1BEC9B"/>
+    <cim:SvPowerFlow.p>-125.95958291</cim:SvPowerFlow.p>
+    <cim:SvPowerFlow.q>119.891025419</cim:SvPowerFlow.q>
+</cim:SvPowerFlow>
+<cim:SvStatus rdf:ID="_17887066AB2E4B0F96729507751BDC65">
+    <cim:SvStatus.ConductingEquipment rdf:resource="#_A3A8229B41774B4A9EBE6B40EFE787DD"/>
+    <cim:SvStatus.inService>true</cim:SvStatus.inService>
+</cim:SvStatus>
+<cim:SvStatus rdf:ID="_28062E72E47748D0BCE90357EEA389E9">
+    <cim:SvStatus.ConductingEquipment rdf:resource="#_A8BA4D0D9ABD4261B8A3A343EF095F52"/>
+    <cim:SvStatus.inService>true</cim:SvStatus.inService>
+</cim:SvStatus>
+<cim:SvStatus rdf:ID="_347F1F04EC1541978EE37F99D45FFF99">
+    <cim:SvStatus.ConductingEquipment rdf:resource="#_5DDCA8884C7E4EC8965F9A4295976A5E"/>
+    <cim:SvStatus.inService>true</cim:SvStatus.inService>
+</cim:SvStatus>
+<cim:SvStatus rdf:ID="_68A5F72C18FF45F999AE13AEAD5D4771">
+    <cim:SvStatus.ConductingEquipment rdf:resource="#_D52EF92DD35444D1960A21A8D0EC68A7"/>
+    <cim:SvStatus.inService>true</cim:SvStatus.inService>
+</cim:SvStatus>
+<cim:SvStatus rdf:ID="_DEE704FA8973495982784EA5DEF98BD4">
+    <cim:SvStatus.ConductingEquipment rdf:resource="#_B88EE454C6554BB898474BAE77FC5C88"/>
+    <cim:SvStatus.inService>true</cim:SvStatus.inService>
+</cim:SvStatus>
+<cim:SvVoltage rdf:ID="_0789319218514CECA149F66E53D8B394">
+    <cim:SvVoltage.angle>-140.328416648</cim:SvVoltage.angle>
+    <cim:SvVoltage.v>20.8257</cim:SvVoltage.v>
+    <cim:SvVoltage.TopologicalNode rdf:resource="#_48746FEF975E4732921B39AA07924D08"/>
+</cim:SvVoltage>
+<cim:SvVoltage rdf:ID="_C9289E31498A4065B7B12CB279A18DB8">
+    <cim:SvVoltage.angle>0</cim:SvVoltage.angle>
+    <cim:SvVoltage.v>380</cim:SvVoltage.v>
+    <cim:SvVoltage.TopologicalNode rdf:resource="#_2037F3FEF5584D4BB9A5C1BE0AE468A5"/>
+</cim:SvVoltage>
+<cim:EnergyConsumer rdf:about="#_5DDCA8884C7E4EC8965F9A4295976A5E">
+    <cim:ConductingEquipment.SvStatus rdf:resource="#_347F1F04EC1541978EE37F99D45FFF99"/>
+</cim:EnergyConsumer>
+<cim:EnergyConsumer rdf:about="#_A8BA4D0D9ABD4261B8A3A343EF095F52">
+    <cim:ConductingEquipment.SvStatus rdf:resource="#_28062E72E47748D0BCE90357EEA389E9"/>
+</cim:EnergyConsumer>
+<cim:PowerTransformer rdf:about="#_D52EF92DD35444D1960A21A8D0EC68A7">
+    <cim:ConductingEquipment.SvStatus rdf:resource="#_68A5F72C18FF45F999AE13AEAD5D4771"/>
+</cim:PowerTransformer>
+<cim:SynchronousMachine rdf:about="#_A3A8229B41774B4A9EBE6B40EFE787DD">
+    <cim:ConductingEquipment.SvStatus rdf:resource="#_17887066AB2E4B0F96729507751BDC65"/>
+</cim:SynchronousMachine>
+<cim:SynchronousMachine rdf:about="#_B88EE454C6554BB898474BAE77FC5C88">
+    <cim:ConductingEquipment.SvStatus rdf:resource="#_DEE704FA8973495982784EA5DEF98BD4"/>
+</cim:SynchronousMachine>
+</rdf:RDF>

@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:profile="http://www.entsoe.eu/2012/profile1_v16#" xmlns:sin="http://www.simtec.cc/cim/sincal-cim-rdf-syntax#" xmlns:cim="http://iec.ch/TC57/2013/CIM-schema-cim16#" xmlns:entsoe="http://entsoe.eu/CIM/SchemaExtension/3/1#" xmlns:entsoe2="http://entsoe.eu/CIM/SchemaExtension/3/2#" xmlns:md="http://iec.ch/TC57/61970-552/ModelDescription/1#" >
+<md:FullModel rdf:about="urn:uuid:c87ff687-5449-11ec-8aad-00155d9cdc0b">
+    <md:Model.created>22/02/2022 13:04:50</md:Model.created>
+    <md:Model.modelingAuthoritySet>FAU</md:Model.modelingAuthoritySet>
+    <md:Model.profile>http://entsoe.eu/CIM/SteadyStateHypothesis/1/1</md:Model.profile>
+    <md:Model.DependentOn rdf:resource="urn:uuid:c87ff685-5449-11ec-8aad-00155d9cdc0b"/>
+</md:FullModel>
+<cim:ControlArea rdf:about="#_937AEFA43212401FBC5F593630B0699B">
+    <cim:ControlArea.netInterchange>0</cim:ControlArea.netInterchange>
+    <cim:ControlArea.pTolerance>0</cim:ControlArea.pTolerance>
+</cim:ControlArea>
+<cim:EnergyConsumer rdf:about="#_5DDCA8884C7E4EC8965F9A4295976A5E">
+    <cim:EnergyConsumer.p>600</cim:EnergyConsumer.p>
+    <cim:EnergyConsumer.q>76</cim:EnergyConsumer.q>
+</cim:EnergyConsumer>
+<cim:EnergyConsumer rdf:about="#_A8BA4D0D9ABD4261B8A3A343EF095F52">
+    <cim:EnergyConsumer.p>380</cim:EnergyConsumer.p>
+    <cim:EnergyConsumer.q>0</cim:EnergyConsumer.q>
+</cim:EnergyConsumer>
+<cim:GeneratingUnit rdf:about="#_085E1F732997474DB28FAF265F73C643">
+    <cim:GeneratingUnit.normalPF>1</cim:GeneratingUnit.normalPF>
+</cim:GeneratingUnit>
+<cim:GeneratingUnit rdf:about="#_A1ED06A5779542E58350B3C6264EFEFC">
+    <cim:GeneratingUnit.normalPF>0</cim:GeneratingUnit.normalPF>
+</cim:GeneratingUnit>
+<cim:SynchronousMachine rdf:about="#_A3A8229B41774B4A9EBE6B40EFE787DD">
+    <cim:RegulatingCondEq.controlEnabled>false</cim:RegulatingCondEq.controlEnabled>
+    <cim:RotatingMachine.p>-475</cim:RotatingMachine.p>
+    <cim:RotatingMachine.q>-156</cim:RotatingMachine.q>
+    <cim:SynchronousMachine.operatingMode rdf:resource="http://iec.ch/TC57/2013/CIM-schema-cim16#SynchronousMachineOperatingMode.generator"/>
+    <cim:SynchronousMachine.referencePriority>0</cim:SynchronousMachine.referencePriority>
+</cim:SynchronousMachine>
+<cim:SynchronousMachine rdf:about="#_B88EE454C6554BB898474BAE77FC5C88">
+    <cim:RegulatingCondEq.controlEnabled>false</cim:RegulatingCondEq.controlEnabled>
+    <cim:RotatingMachine.p>0</cim:RotatingMachine.p>
+    <cim:RotatingMachine.q>0</cim:RotatingMachine.q>
+    <cim:SynchronousMachine.operatingMode rdf:resource="http://iec.ch/TC57/2013/CIM-schema-cim16#SynchronousMachineOperatingMode.generator"/>
+    <cim:SynchronousMachine.referencePriority>1</cim:SynchronousMachine.referencePriority>
+</cim:SynchronousMachine>
+<cim:Terminal rdf:about="#_2803BDD5CE2049C085D3B374F79A83A7">
+    <cim:ACDCTerminal.connected>false</cim:ACDCTerminal.connected>
+</cim:Terminal>
+<cim:Terminal rdf:about="#_6BA65C09559943DB98F4F89CF9BC472C">
+    <cim:ACDCTerminal.connected>true</cim:ACDCTerminal.connected>
+</cim:Terminal>
+<cim:Terminal rdf:about="#_8A6A5AF47AC04854856D17515E1BEC9B">
+    <cim:ACDCTerminal.connected>true</cim:ACDCTerminal.connected>
+</cim:Terminal>
+<cim:Terminal rdf:about="#_968E273FCF5C42A0B0CEC3797B4B8E0A">
+    <cim:ACDCTerminal.connected>true</cim:ACDCTerminal.connected>
+</cim:Terminal>
+<cim:Terminal rdf:about="#_B93607A745FF48E09926137B38186992">
+    <cim:ACDCTerminal.connected>true</cim:ACDCTerminal.connected>
+</cim:Terminal>
+<cim:Terminal rdf:about="#_CC0FC93E16BF47B0BD1C159E3840FC79">
+    <cim:ACDCTerminal.connected>true</cim:ACDCTerminal.connected>
+</cim:Terminal>
+</rdf:RDF>

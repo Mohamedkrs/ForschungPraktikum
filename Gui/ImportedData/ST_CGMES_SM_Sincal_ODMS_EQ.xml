@@ -182,7 +182,6 @@
   <cim:SynchronousMachine rdf:ID="_B88EE454C6554BB898474BAE77FC5C88">
     <cim:SynchronousMachine.earthing>false</cim:SynchronousMachine.earthing>
     <cim:SynchronousMachine.maxQ>0</cim:SynchronousMachine.maxQ>
-	<cim:RegulatingCondEq.RegulatingControl rdf:resource="#_f648fcfc-6a0c-8a13-dfa7-61bea29e7ba6" />
     <cim:SynchronousMachine.minQ>0</cim:SynchronousMachine.minQ>
     <cim:SynchronousMachine.qPercent>100</cim:SynchronousMachine.qPercent>
     <cim:SynchronousMachine.r>2.888</cim:SynchronousMachine.r>
@@ -197,11 +196,6 @@
     <cim:IdentifiedObject.name>SMFeeder</cim:IdentifiedObject.name>
     <entsoe:IdentifiedObject.shortName>SMFeeder</entsoe:IdentifiedObject.shortName>
   </cim:SynchronousMachine>
-  <cim:RegulatingControl rdf:ID="_f648fcfc-6a0c-8a13-dfa7-61bea29e7ba6">
-	<cim:IdentifiedObject.name>SMFeeder</cim:IdentifiedObject.name>
-	<cim:RegulatingControl.Terminal rdf:resource="#_8A6A5AF47AC04854856D17515E1BEC9B" />
-	<cim:RegulatingControl.mode rdf:resource="http://iec.ch/TC57/2013/CIM-schema-cim16#RegulatingControlModeKind.voltage" />
-   </cim:RegulatingControl>
   <cim:Terminal rdf:ID="_2803BDD5CE2049C085D3B374F79A83A7">
     <cim:Terminal.ConductingEquipment rdf:resource="#_A8BA4D0D9ABD4261B8A3A343EF095F52" />
     <cim:Terminal.ConnectivityNode rdf:resource="#_af8ab292-0574-417a-810b-6fcd96634317" />

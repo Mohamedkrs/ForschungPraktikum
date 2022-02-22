@@ -1,6 +1,5 @@
-from collections import Counter
-
 import cimpy
+import importlib
 
 
 class ManageElements:
@@ -10,6 +9,30 @@ class ManageElements:
         self.elements = {}
         self.profile_elements = {}
         self.data = []
+    def swapEnergySourceWithExternalGrid(self):
+        for key, val in self.data["topology"].items():
+            if "EnergySource"  == self.data["topology"][key].__class__.__name__:
+                elemMrid=key
+                EquipmentContainer = self.data["topology"][key].__dict__["EquipmentContainer"]
+                name = self.data["topology"][key].__dict__["name"]
+                shortName = self.data["topology"][key].__dict__["shortName"]
+                description = self.data["topology"][key].__dict__["description"]
+                externalGrid_module = importlib.import_module('cimpy.cgmes_v2_4_15.'+'ExternalNetworkInjection')
+                externalGrid_class = getattr(externalGrid_module,'ExternalNetworkInjection')
+                externalGrid_class.serializationProfile = {
+                    'class':'EQ', 'p':'SSH', 'q':'SSH',
+                    'referencePriority':'SSH', 'controlEnabled':'SSH',
+                    'EquipmentContainer':'EQ', 'governorSCD':'EQ',
+                    'maxP':'EQ','maxQ':'EQ',
+                    'maxR0ToX0Ratio':'EQ','maxR1ToX1Ratio':'EQ',
+                    'maxZ0ToZ1Ratio':'EQ', 'minInitialSymShCCurrent':'EQ',
+                    'minP':'EQ', 'minQ':'EQ', 'minR0ToX0Ratio':'EQ',
+                    'minR1ToX1Ratio':'EQ', 'minZ0ToZ1Ratio':'EQ',
+                    'name':'EQ','RegulatingControl':'EQ' }
+                self.data["topology"][key] = externalGrid_class(mRID=elemMrid,
+                                                                    name=name,
+                                                                    EquipmentContainer=EquipmentContainer, shortName=shortName, description=description,
+                                                                    maxP = 10.0, maxQ = 20.0)
 
     def import_eq_data(self, profile):
 

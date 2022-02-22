@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:profile="http://www.entsoe.eu/2012/profile1_v16#" xmlns:sin="http://www.simtec.cc/cim/sincal-cim-rdf-syntax#" xmlns:cim="http://iec.ch/TC57/2013/CIM-schema-cim16#" xmlns:entsoe="http://entsoe.eu/CIM/SchemaExtension/3/1#" xmlns:entsoe2="http://entsoe.eu/CIM/SchemaExtension/3/2#" xmlns:md="http://iec.ch/TC57/61970-552/ModelDescription/1#" >
+<md:FullModel rdf:about="urn:uuid:c87ff686-5449-11ec-8aad-00155d9cdc0b">
+    <md:Model.created>22/02/2022 13:04:50</md:Model.created>
+    <md:Model.modelingAuthoritySet>FAU</md:Model.modelingAuthoritySet>
+    <md:Model.profile>http://entsoe.eu/CIM/Topology/4/1</md:Model.profile>
+    <md:Model.DependentOn rdf:resource="urn:uuid:c87ff685-5449-11ec-8aad-00155d9cdc0b"/>
+</md:FullModel>
+<cim:TopologicalNode rdf:ID="_2037F3FEF5584D4BB9A5C1BE0AE468A5">
+    <cim:IdentifiedObject.name>Bus2</cim:IdentifiedObject.name>
+    <entsoe:IdentifiedObject.shortName>B2</entsoe:IdentifiedObject.shortName>
+    <cim:TopologicalNode.BaseVoltage rdf:resource="#_46A3B0F6ED5E4146B99E10075C579C31"/>
+    <cim:TopologicalNode.ConnectivityNodeContainer rdf:resource="#_61192A7BC7214D6CBE52CD311413D159"/>
+</cim:TopologicalNode>
+<cim:TopologicalNode rdf:ID="_48746FEF975E4732921B39AA07924D08">
+    <cim:IdentifiedObject.name>Bus1</cim:IdentifiedObject.name>
+    <entsoe:IdentifiedObject.shortName>b1</entsoe:IdentifiedObject.shortName>
+    <cim:TopologicalNode.BaseVoltage rdf:resource="#_DA55962804F5439DB5C87B2C2C4C7BC1"/>
+    <cim:TopologicalNode.ConnectivityNodeContainer rdf:resource="#_679AE644C20E42A6A8A5FDEA157E5E78"/>
+</cim:TopologicalNode>
+<cim:ConnectivityNode rdf:about="#_af8ab292-0574-417a-810b-6fcd96634317">
+    <cim:ConnectivityNode.TopologicalNode rdf:resource="#_48746FEF975E4732921B39AA07924D08"/>
+</cim:ConnectivityNode>
+<cim:ConnectivityNode rdf:about="#_e1a9d479-1f46-4e36-a960-316cccede0ba">
+    <cim:ConnectivityNode.TopologicalNode rdf:resource="#_2037F3FEF5584D4BB9A5C1BE0AE468A5"/>
+</cim:ConnectivityNode>
+<cim:Terminal rdf:about="#_2803BDD5CE2049C085D3B374F79A83A7">
+    <cim:Terminal.TopologicalNode rdf:resource="#_48746FEF975E4732921B39AA07924D08"/>
+</cim:Terminal>
+<cim:Terminal rdf:about="#_6BA65C09559943DB98F4F89CF9BC472C">
+    <cim:Terminal.TopologicalNode rdf:resource="#_2037F3FEF5584D4BB9A5C1BE0AE468A5"/>
+</cim:Terminal>
+<cim:Terminal rdf:about="#_8A6A5AF47AC04854856D17515E1BEC9B">
+    <cim:Terminal.TopologicalNode rdf:resource="#_2037F3FEF5584D4BB9A5C1BE0AE468A5"/>
+</cim:Terminal>
+<cim:Terminal rdf:about="#_968E273FCF5C42A0B0CEC3797B4B8E0A">
+    <cim:Terminal.TopologicalNode rdf:resource="#_2037F3FEF5584D4BB9A5C1BE0AE468A5"/>
+</cim:Terminal>
+<cim:Terminal rdf:about="#_B93607A745FF48E09926137B38186992">
+    <cim:Terminal.TopologicalNode rdf:resource="#_48746FEF975E4732921B39AA07924D08"/>
+</cim:Terminal>
+<cim:Terminal rdf:about="#_CC0FC93E16BF47B0BD1C159E3840FC79">
+    <cim:Terminal.TopologicalNode rdf:resource="#_48746FEF975E4732921B39AA07924D08"/>
+</cim:Terminal>
+</rdf:RDF>

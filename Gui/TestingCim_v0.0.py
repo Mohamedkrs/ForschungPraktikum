@@ -163,7 +163,7 @@ class MainWindow(QDialog):
         for checkbox in self.checkBoxList:
             if checkbox.isChecked():
                 active_profile_list.append(checkbox.text())
-
+        self.data_manager.swapEnergySourceWithExternalGrid()
         export_data = cimpy.sincal_Pf(self.data_manager.data)
         for filename12 in glob.glob(output_dir + "/*"):
             os.remove(filename12)
