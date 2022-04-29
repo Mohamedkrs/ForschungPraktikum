@@ -19,6 +19,10 @@
   <property name="windowTitle">
    <string>gfdg</string>
   </property>
+  <property name="windowIcon">
+   <iconset>
+    <normaloff>app_icon1.png</normaloff>app_icon1.png</iconset>
+  </property>
   <layout class="QGridLayout" name="gridLayout">
    <item row="0" column="0">
     <layout class="QHBoxLayout" name="horizontalLayout_4">
@@ -80,6 +84,9 @@
     <layout class="QHBoxLayout" name="horizontalLayout_5">
      <item>
       <widget class="QTreeView" name="treeView">
+       <property name="selectionMode">
+        <enum>QAbstractItemView::SingleSelection</enum>
+       </property>
        <attribute name="headerVisible">
         <bool>false</bool>
        </attribute>

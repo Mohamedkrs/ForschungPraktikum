@@ -4,42 +4,47 @@ import importlib
 
 class ManageElements:
     cgmesver = "cgmes_v2_4_15"
-    #elems={}
+    # elems={}
+
     def __init__(self):
         self.elements = {}
         self.profile_elements = {}
         self.data = []
-    def swapEnergySourceWithExternalGrid(self):
-        for key, val in self.data["topology"].items():
-            if "EnergySource"  == self.data["topology"][key].__class__.__name__:
-                elemMrid=key
-                EquipmentContainer = self.data["topology"][key].__dict__["EquipmentContainer"]
-                name = self.data["topology"][key].__dict__["name"]
-                shortName = self.data["topology"][key].__dict__["shortName"]
-                description = self.data["topology"][key].__dict__["description"]
-                externalGrid_module = importlib.import_module('cimpy.cgmes_v2_4_15.'+'ExternalNetworkInjection')
-                externalGrid_class = getattr(externalGrid_module,'ExternalNetworkInjection')
-                externalGrid_class.serializationProfile = {
-                    'class':'EQ', 'p':'SSH', 'q':'SSH',
-                    'referencePriority':'SSH', 'controlEnabled':'SSH',
-                    'EquipmentContainer':'EQ', 'governorSCD':'EQ',
-                    'maxP':'EQ','maxQ':'EQ',
-                    'maxR0ToX0Ratio':'EQ','maxR1ToX1Ratio':'EQ',
-                    'maxZ0ToZ1Ratio':'EQ', 'minInitialSymShCCurrent':'EQ',
-                    'minP':'EQ', 'minQ':'EQ', 'minR0ToX0Ratio':'EQ',
-                    'minR1ToX1Ratio':'EQ', 'minZ0ToZ1Ratio':'EQ',
-                    'name':'EQ','RegulatingControl':'EQ' }
-                self.data["topology"][key] = externalGrid_class(mRID=elemMrid,
-                                                                    name=name,
-                                                                    EquipmentContainer=EquipmentContainer, shortName=shortName, description=description,
-                                                                    maxP = 10.0, maxQ = 20.0)
+
+    def swapEnergySourceWithExternalGrid(self, source, val_name):
+        mRID = self.profile_elements[source]
+        EquipmentContainer = self.data["topology"][mRID].__dict__[
+            "EquipmentContainer"]
+        name = self.data["topology"][mRID].name
+        shortName = self.data["topology"][mRID].shortName
+        description = self.data["topology"][mRID].description
+        externalGrid_module = importlib.import_module(
+            'cimpy.cgmes_v2_4_15.'+'ExternalNetworkInjection')
+        externalGrid_class = getattr(
+            externalGrid_module, 'ExternalNetworkInjection')
+        externalGrid_class.serializationProfile = {
+            'class': 'EQ', 'p': 'SSH', 'q': 'SSH',
+            'referencePriority': 'SSH', 'controlEnabled': 'SSH',
+            'EquipmentContainer': 'EQ', 'governorSCD': 'EQ',
+            'maxP': 'EQ', 'maxQ': 'EQ',
+            'maxR0ToX0Ratio': 'EQ', 'maxR1ToX1Ratio': 'EQ',
+            'maxZ0ToZ1Ratio': 'EQ', 'minInitialSymShCCurrent': 'EQ',
+            'minP': 'EQ', 'minQ': 'EQ', 'minR0ToX0Ratio': 'EQ',
+            'minR1ToX1Ratio': 'EQ', 'minZ0ToZ1Ratio': 'EQ',
+            'name': 'EQ', 'RegulatingControl': 'EQ'}
+        self.data["topology"][mRID] = externalGrid_class(mRID=mRID,
+                                                         name=name,
+                                                         EquipmentContainer=EquipmentContainer, shortName=shortName, description=description,
+                                                         maxP=100000, maxQ=9999, maxInitialSymShCCurrent=15193.4, maxR0ToX0Ratio=0.1, maxR1ToX1Ratio=0.1, maxZ0ToZ1Ratio=1, minInitialSymShCCurrent=12154.7, minR0ToX0Ratio=0.1, minR1ToX1Ratio=0.1, minZ0ToZ1Ratio=1)
+        self.profile_elements[val_name] = self.profile_elements.pop(
+            source)
 
     def import_eq_data(self, profile):
-
         if self.elements:
             self.elements.clear()
         try:
-            class_attributes_list = cimpy.cimexport._get_class_attributes_with_references(self.data, self.cgmesver)
+            class_attributes_list = cimpy.cimexport._get_class_attributes_with_references(
+                self.data, self.cgmesver)
             eq_classes_list = cimpy.cimexport._sort_classes_to_profile(class_attributes_list, [profile])[0][profile][
                 'classes']
         except:
@@ -52,7 +57,8 @@ class ManageElements:
                             self.elements[_class['name']] = _class['mRID']
                             i = 1
                         else:
-                            self.elements[_class['name'] + " " + str(i)] = _class['mRID']
+                            self.elements[_class['name'] +
+                                          " " + str(i)] = _class['mRID']
                             i += 1
         for key, val in self.elements.items():
             self.profile_elements[key] = val
@@ -78,7 +84,6 @@ class ManageElements:
                         if detail.lower() in str(v).lower():
                             detail_dict[key] = val
                             break
-
         if elem_andor_prop == "and" and prop_andor_elem == "and":
             if set(elem_name_dict.keys()) & set(prop_dict.keys()) & set(detail_dict.keys()):
                 for item in set(detail_dict.keys()) & set(prop_dict.keys()):
@@ -93,5 +98,4 @@ class ManageElements:
                     filtered_elements[item] = self.profile_elements[item]
         else:
             filtered_elements = {**elem_name_dict, **prop_dict, **detail_dict}
-            print(filtered_elements)
         return filtered_elements.keys()
